@@ -1,8 +1,9 @@
 import { useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import "highlight.js/styles/monokai-sublime.css";
 import "./App.css";
-import { formats, modules } from "./editor/config";
+import { modules } from "./editor/config";
 
 function App() {
   const [value, setValue] = useState("");
@@ -26,7 +27,6 @@ function App() {
         value={value}
         onChange={setValue}
         modules={modules}
-        formats={formats}
       />
     </div>
   );
