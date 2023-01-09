@@ -2,6 +2,7 @@ import { useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import "highlight.js/styles/monokai-sublime.css";
+import "katex/dist/katex.css";
 import "./App.css";
 import { modules } from "./editor/config";
 

@@ -1,4 +1,6 @@
 import hljs from "highlight.js";
+import katex from "katex";
+window.katex = katex;
 
 export const modules = {
   syntax: {
@@ -17,7 +19,7 @@ export const modules = {
       { indent: "+1" },
     ],
     [{ direction: "rtl" }, { align: [] }],
-    ["link", "image", "video"],
+    ["link", "image", "video", "formula"],
     ["clean"],
   ],
 };
