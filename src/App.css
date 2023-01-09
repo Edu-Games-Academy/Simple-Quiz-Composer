@@ -42,3 +42,9 @@
 .read-the-docs {
   color: #888;
 }
+
+code {
+  display: block;
+  background: lightgrey;
+  border: solid 1px grey;
+}

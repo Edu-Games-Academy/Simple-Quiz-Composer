@@ -29,6 +29,8 @@ function App() {
         onChange={setValue}
         modules={modules}
       />
+      <p>Output:</p>
+      <code>{value}</code>
     </div>
   );
 }
