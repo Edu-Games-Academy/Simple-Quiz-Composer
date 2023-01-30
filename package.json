@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "format-code": "prettier --write ."
   },
   "dependencies": {
     "highlight.js": "^11.7.0",
