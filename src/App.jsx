@@ -11,26 +11,19 @@ function App() {
 
   return (
     <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src="/react.svg" className="logo react" alt="React logo" />
-        </a>
-        <a href="https://quilljs.com" target="_blank">
-          <img src="/quill.svg" className="logo quill" alt="Quill logo" />
-        </a>
-      </div>
-      <h1>Simple Quiz Composer</h1>
+      <h1 className="text-3xl font-bold my-8">
+        Simple Quiz Composer
+      </h1>
       <ReactQuill
         theme="snow"
         value={value}
         onChange={setValue}
         modules={modules}
       />
-      <p>Output:</p>
-      <code>{value}</code>
+      <h2 className="text-xl font-bold my-4">Output:</h2>
+      <div className="w-full bg-slate-400">
+        <code>{value}</code>
+      </div>
     </div>
   );
 }
