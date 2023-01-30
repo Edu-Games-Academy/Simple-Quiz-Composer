@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "format-code": "prettier --write ."
+    "custom-eslint": "eslint --fix src/**/*.jsx",
+    "custom-prettier": "prettier --write .",
+    "format-code": "yarn custom-eslint && yarn custom-prettier"
   },
   "dependencies": {
     "highlight.js": "^11.7.0",
