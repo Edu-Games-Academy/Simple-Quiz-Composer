@@ -11,16 +11,14 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="text-3xl font-bold my-8">
-        Simple Quiz Composer
-      </h1>
+      <h1 className="my-8 text-3xl font-bold">Simple Quiz Composer</h1>
       <ReactQuill
         theme="snow"
         value={value}
         onChange={setValue}
         modules={modules}
       />
-      <h2 className="text-xl font-bold my-4">Output:</h2>
+      <h2 className="my-4 text-xl font-bold">Output:</h2>
       <div className="w-full bg-slate-400">
         <code>{value}</code>
       </div>

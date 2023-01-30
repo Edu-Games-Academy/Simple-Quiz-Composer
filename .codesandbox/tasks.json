@@ -13,10 +13,7 @@
       "name": "Install Dependencies",
       "command": "yarn",
       "restartOn": {
-        "files": [
-          "yarn.lock",
-          "**/package.json"
-        ],
+        "files": ["yarn.lock", "**/package.json"],
         "branch": true
       }
     },
