@@ -1,8 +1,9 @@
-import Editor from "@/components/Editor";
-import React, { useState } from "react";
+import React, { useState } from 'react';
+
+import Editor from '@/components/Editor';
 
 function App() {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState('');
 
   return (
     <div className="App">
