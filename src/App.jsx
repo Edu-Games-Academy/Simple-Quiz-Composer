@@ -1,10 +1,9 @@
-import React, { useState } from "react";
-import ReactQuill from "react-quill";
-import { modules } from "./editor/config";
-
-import "react-quill/dist/quill.snow.css";
+import { modules } from "@/editor/config";
 import "highlight.js/styles/monokai-sublime.css";
 import "katex/dist/katex.css";
+import React, { useState } from "react";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 
 function App() {
   const [value, setValue] = useState("");
