@@ -1,5 +1,6 @@
 import hljs from "highlight.js";
 import katex from "katex";
+
 window.katex = katex;
 
 export const modules = {

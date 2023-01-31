@@ -1,10 +1,5 @@
+import Editor from "@/components/Editor";
 import React, { useState } from "react";
-import ReactQuill from "react-quill";
-import { modules } from "./editor/config";
-
-import "react-quill/dist/quill.snow.css";
-import "highlight.js/styles/monokai-sublime.css";
-import "katex/dist/katex.css";
 
 function App() {
   const [value, setValue] = useState("");
@@ -12,12 +7,7 @@ function App() {
   return (
     <div className="App">
       <h1 className="my-8 text-3xl font-bold">Simple Quiz Composer</h1>
-      <ReactQuill
-        theme="snow"
-        value={value}
-        onChange={setValue}
-        modules={modules}
-      />
+      <Editor value={value} onChange={setValue} />
       <h2 className="my-4 text-xl font-bold">Output:</h2>
       <div className="w-full bg-slate-400">
         <code>{value}</code>
