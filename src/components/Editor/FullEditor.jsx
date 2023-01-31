@@ -1,7 +1,8 @@
-import { modules } from "./config";
-import PropTypes from "prop-types";
-import React from "react";
-import ReactQuill from "react-quill";
+import PropTypes from 'prop-types';
+import React from 'react';
+import ReactQuill from 'react-quill';
+
+import { modules } from './config';
 
 function FullEditor({ value, onChange }) {
   return (
