@@ -1,17 +1,24 @@
 import React, { useState } from 'react';
 
 import Editor from '@/components/Editor';
+import NavBar from '@/components/NavBar';
+import SideBar from '@/components/SideBar';
 
 function App() {
   const [value, setValue] = useState('');
 
   return (
     <div className="App">
-      <h1 className="my-8 text-3xl font-bold">Simple Quiz Composer</h1>
-      <Editor value={value} onChange={setValue} />
-      <h2 className="my-4 text-xl font-bold">Output:</h2>
-      <div className="w-full bg-slate-400">
-        <code>{value}</code>
+      <NavBar />
+      <SideBar />
+      <div className="ml-64 p-4">
+        <div className="mt-14 rounded-lg border-2 border-dashed border-gray-200 p-4 dark:border-gray-700">
+          <Editor value={value} onChange={setValue} />
+          <h2 className="my-4 text-xl font-bold">Output:</h2>
+          <div className="w-full bg-slate-400">
+            <code>{value}</code>
+          </div>
+        </div>
       </div>
     </div>
   );
