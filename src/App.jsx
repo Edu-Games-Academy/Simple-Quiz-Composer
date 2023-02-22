@@ -12,7 +12,7 @@ function App() {
       <NavBar />
       <SideBar />
       <div className="ml-64 p-4">
-        <div className="mt-14 rounded-lg border-2 border-dashed border-gray-200 p-4 dark:border-gray-700">
+        <div className="mt-28 rounded-lg border-2 border-dashed border-gray-200 p-4 dark:border-gray-700 lg:mt-16">
           <Editor value={value} onChange={setValue} />
           <h2 className="my-4 text-xl font-bold">Output:</h2>
           <div className="w-full bg-slate-400">
