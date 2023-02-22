@@ -18,7 +18,7 @@ function SideBar() {
       <div className="h-full overflow-y-auto bg-gray-800 px-3 pb-4">
         <ul className="grid grid-cols-3 gap-4">
           {questions.map((_, index) => (
-            <SideBarButton key={index} label={index + 1} />
+            <SideBarButton key={index} label={String(index + 1)} />
           ))}
           <SideBarButton label="+" onClick={() => addQuestion()} />
         </ul>
