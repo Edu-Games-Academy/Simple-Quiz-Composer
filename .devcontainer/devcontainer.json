@@ -22,39 +22,20 @@
     "vscode": {
       // Add the IDs of extensions you want installed when the container is created.
       "extensions": [
-        "dbaeumer.vscode-eslint",
+        "marclipovsky.string-manipulation",
         "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "ChakrounAnas.turbo-console-log",
         "heybourn.headwind",
         "bradlc.vscode-tailwindcss",
         "austenc.tailwind-docs",
-        "marclipovsky.string-manipulation",
-        "ChakrounAnas.turbo-console-log",
         "eamodio.gitlens"
       ],
       "settings": {
-        "typescript.preferences.quoteStyle": "single",
-        "[typescript]": {
-          "editor.defaultFormatter": "esbenp.prettier-vscode",
-          "editor.formatOnSave": true
-        },
-        "[typescriptreact]": {
-          "editor.defaultFormatter": "esbenp.prettier-vscode",
-          "editor.formatOnSave": true
-        },
-        "[javascript]": {
-          "editor.defaultFormatter": "esbenp.prettier-vscode",
-          "editor.formatOnSave": true
-        },
-        "[javascriptreact]": {
-          "editor.defaultFormatter": "esbenp.prettier-vscode",
-          "editor.formatOnSave": true
-        },
-        "[html]": {
-          "editor.defaultFormatter": "esbenp.prettier-vscode",
-          "editor.formatOnSave": true
-        },
         "terminal.integrated.defaultProfile.linux": "zsh",
-        "terminal.integrated.fontFamily": "MesloLGS NF"
+        "terminal.integrated.fontFamily": "MesloLGS NF",
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
       }
     }
   }
