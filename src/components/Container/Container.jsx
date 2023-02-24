@@ -32,6 +32,14 @@ function Container() {
     setQuestion(initialQuestion);
   };
 
+  const updateQuestion = () => {
+    questionsDispatch({
+      type: Actions.UPDATE,
+      index: selectedQuestion,
+      question,
+    });
+  };
+
   const action = (
     <div className="flex items-center justify-between px-4 pb-4">
       <button
@@ -54,6 +62,7 @@ function Container() {
         <button
           type="button"
           className="inline-flex items-center rounded-lg bg-[#4285F4] px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-[#4285F4]/90 focus:outline-none focus:ring-4 focus:ring-[#4285F4]/50"
+          onClick={updateQuestion}
         >
           <svg
             aria-hidden="true"
