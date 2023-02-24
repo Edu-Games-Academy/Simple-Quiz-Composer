@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 import RawQuestion from '@/components/RawQuestion/RawQuestion';
 import RichtextQuestion from '@/components/RichtextQuestion';
@@ -39,6 +39,10 @@ function Container() {
       question,
     });
   };
+
+  useEffect(() => {
+    resetQuestion();
+  }, [selectedQuestion]);
 
   const action = (
     <div className="flex items-center justify-between px-4 pb-4">
