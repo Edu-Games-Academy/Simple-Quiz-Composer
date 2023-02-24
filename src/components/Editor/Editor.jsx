@@ -4,7 +4,7 @@ import ReactQuill from 'react-quill';
 
 import { modules } from './config';
 
-function FullEditor({ value, onChange }) {
+function Editor({ value, onChange }) {
   return (
     <ReactQuill
       theme="snow"
@@ -15,9 +15,9 @@ function FullEditor({ value, onChange }) {
   );
 }
 
-FullEditor.propTypes = {
+Editor.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func,
 };
 
-export default FullEditor;
+export default Editor;
