@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useState } from 'react';
 
 import Container from '@/components/Container';
 import NavBar from '@/components/NavBar';
@@ -11,10 +11,18 @@ function App() {
     questionsReducer,
     initialQuestions,
   );
+  const [selectedQuestion, setSelectedQuestion] = useState(0);
 
   return (
     <div className="App">
-      <QuestionsContext.Provider value={{ questions, questionsDispatch }}>
+      <QuestionsContext.Provider
+        value={{
+          questions,
+          questionsDispatch,
+          selectedQuestion,
+          setSelectedQuestion,
+        }}
+      >
         <NavBar />
         <SideBar />
         <Container />
