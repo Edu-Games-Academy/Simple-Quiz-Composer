@@ -11,6 +11,10 @@ function Container() {
   const initialQuestion = questions[selectedQuestion];
   const [question, setQuestion] = useState(initialQuestion);
 
+  const resetQuestion = () => {
+    setQuestion(initialQuestion);
+  };
+
   const action = (
     <div className="flex items-center justify-between px-4 pb-4">
       <button
@@ -23,6 +27,7 @@ function Container() {
         <button
           type="button"
           className="rounded-lg bg-yellow-500 px-5 py-2.5 text-sm font-medium text-white hover:bg-yellow-600 focus:outline-none focus:ring-4 focus:ring-yellow-900"
+          onClick={resetQuestion}
         >
           Reset
         </button>
