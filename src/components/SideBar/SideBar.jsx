@@ -6,7 +6,12 @@ import { Actions } from '@/reducers/questionReducer';
 import SideBarButton from './SideBarButton';
 
 function SideBar() {
-  const { questions, questionsDispatch } = useContext(QuestionsContext);
+  const {
+    questions,
+    questionsDispatch,
+    selectedQuestion,
+    setSelectedQuestion,
+  } = useContext(QuestionsContext);
   const addQuestion = () => {
     questionsDispatch({ type: Actions.ADD });
   };
@@ -18,7 +23,12 @@ function SideBar() {
       <div className="h-full overflow-y-auto bg-gray-800 px-3 pb-4">
         <ul className="grid grid-cols-3 gap-4">
           {questions.map((_, index) => (
-            <SideBarButton key={index} label={String(index + 1)} />
+            <SideBarButton
+              key={index}
+              label={String(index + 1)}
+              isSelected={selectedQuestion === index}
+              onClick={() => setSelectedQuestion(index)}
+            />
           ))}
           <SideBarButton label="+" onClick={() => addQuestion()} />
         </ul>

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
-function TabContainer({ tabs, children }) {
+function TabContainer({ tabs, children, action }) {
   const [selectedTab, setSelectedTab] = useState(0);
 
   return (
@@ -37,6 +37,7 @@ function TabContainer({ tabs, children }) {
           </div>
         ))}
       </div>
+      {action}
     </div>
   );
 }
@@ -44,6 +45,7 @@ function TabContainer({ tabs, children }) {
 TabContainer.propTypes = {
   tabs: PropTypes.arrayOf(PropTypes.string),
   children: PropTypes.arrayOf(PropTypes.element),
+  action: PropTypes.element,
 };
 
 export default TabContainer;
