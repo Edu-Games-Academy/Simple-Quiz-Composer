@@ -4,12 +4,29 @@ import RawQuestion from '@/components/RawQuestion/RawQuestion';
 import RichtextQuestion from '@/components/RichtextQuestion';
 import TabContainer from '@/components/TabContainer';
 import QuestionsContext from '@/contexts/questionsContext';
+import { Actions } from '@/reducers/questionReducer';
 
 function Container() {
-  const { questions, selectedQuestion } = useContext(QuestionsContext);
+  const {
+    questions,
+    questionsDispatch,
+    selectedQuestion,
+    setSelectedQuestion,
+  } = useContext(QuestionsContext);
 
   const initialQuestion = questions[selectedQuestion];
   const [question, setQuestion] = useState(initialQuestion);
+
+  const isRemovable = questions.length < 2;
+
+  const removeQuestion = () => {
+    questionsDispatch({ type: Actions.REMOVE, index: selectedQuestion });
+    setSelectedQuestion(
+      selectedQuestion === questions.length - 1
+        ? selectedQuestion - 1
+        : selectedQuestion,
+    );
+  };
 
   const resetQuestion = () => {
     setQuestion(initialQuestion);
@@ -19,7 +36,10 @@ function Container() {
     <div className="flex items-center justify-between px-4 pb-4">
       <button
         type="button"
-        className="rounded-lg bg-red-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-red-900"
+        aria-disabled={isRemovable}
+        disabled={isRemovable}
+        className="rounded-lg bg-red-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-red-900 disabled:cursor-not-allowed disabled:bg-red-700"
+        onClick={removeQuestion}
       >
         Remove
       </button>
