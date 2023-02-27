@@ -25,6 +25,6 @@ export const questionsReducer = (state, action) => {
     case Actions.REMOVE:
       return update(state, { $splice: [[action.index, 1]] });
     case Actions.UPDATE:
-      return update(state, { $splice: [[action.index, 1, action.question]] });
+      return update(state, { [action.index]: { $set: action.question } });
   }
 };
