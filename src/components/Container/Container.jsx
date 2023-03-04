@@ -20,7 +20,7 @@ function Container() {
   const initialQuestion = questions[selectedQuestion];
   const [question, setQuestion] = useState(initialQuestion);
 
-  const isRemovable = questions.length < 2;
+  const isNonRemovable = questions.length < 2;
 
   const removeQuestion = () => {
     questionsDispatch({ type: Actions.REMOVE, index: selectedQuestion });
@@ -51,8 +51,8 @@ function Container() {
     <div className="flex items-center justify-between px-4 pb-4">
       <button
         type="button"
-        aria-disabled={isRemovable}
-        disabled={isRemovable}
+        aria-disabled={isNonRemovable}
+        disabled={isNonRemovable}
         className="inline-flex items-center rounded-lg bg-red-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-red-800 disabled:cursor-not-allowed disabled:bg-red-400"
         onClick={removeQuestion}
       >
