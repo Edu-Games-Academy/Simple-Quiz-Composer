@@ -53,7 +53,7 @@ function Container() {
         type="button"
         aria-disabled={isRemovable}
         disabled={isRemovable}
-        className="inline-flex items-center rounded-lg bg-red-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-red-900 disabled:cursor-not-allowed disabled:bg-red-400"
+        className="inline-flex items-center rounded-lg bg-red-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-red-800 disabled:cursor-not-allowed disabled:bg-red-400"
         onClick={removeQuestion}
       >
         <DeleteForeverIcon
@@ -68,7 +68,7 @@ function Container() {
       <div className="flex items-center gap-4">
         <button
           type="button"
-          className="inline-flex items-center rounded-lg bg-yellow-500 px-5 py-2.5 text-sm font-medium text-white hover:bg-yellow-600 focus:outline-none focus:ring-4 focus:ring-yellow-900"
+          className="inline-flex items-center rounded-lg bg-amber-500 px-5 py-2.5 text-sm font-medium text-white hover:bg-amber-600 focus:outline-none focus:ring-4 focus:ring-amber-700"
           onClick={resetQuestion}
         >
           <ResetIcon
@@ -82,7 +82,7 @@ function Container() {
         </button>
         <button
           type="button"
-          className="inline-flex items-center rounded-lg bg-[#4285F4] px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-[#4285F4]/90 focus:outline-none focus:ring-4 focus:ring-[#4285F4]/50"
+          className="inline-flex items-center rounded-lg bg-blue-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-800"
           onClick={updateQuestion}
         >
           <SaveIcon
