@@ -25,6 +25,7 @@
         "marclipovsky.string-manipulation",
         "esbenp.prettier-vscode",
         "dbaeumer.vscode-eslint",
+        "formulahendry.auto-rename-tag",
         "ChakrounAnas.turbo-console-log",
         "heybourn.headwind",
         "bradlc.vscode-tailwindcss",

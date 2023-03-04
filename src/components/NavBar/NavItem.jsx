@@ -6,7 +6,7 @@ function NavItem({ onClick, children }) {
     <li>
       <button
         onClick={onClick}
-        className="block rounded border-gray-700 p-0 text-gray-400 hover:bg-transparent hover:text-white"
+        className="inline-flex items-center rounded border-gray-700 p-0 text-gray-400 hover:bg-transparent hover:text-white"
       >
         {children}
       </button>
