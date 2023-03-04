@@ -14,6 +14,7 @@ function SideBar() {
   } = useContext(QuestionsContext);
   const addQuestion = () => {
     questionsDispatch({ type: Actions.ADD });
+    setSelectedQuestion(questions.length);
   };
   return (
     <aside
