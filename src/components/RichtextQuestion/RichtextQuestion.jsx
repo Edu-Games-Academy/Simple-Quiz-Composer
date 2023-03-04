@@ -22,8 +22,16 @@ function RichtextQuestion({ question, onChange }) {
     );
   };
   const handleAddAnswer = (index) => {
+    onChange(
+      update(question, {
+        choices: {
+          $splice: [[index + 1, 0, { answer: '', isCorrect: false }]],
+        },
+      }),
+    );
   };
   const handleRemoveAnswer = (index) => {
+    onChange(update(question, { choices: { $splice: [[index, 1]] } }));
   };
   return (
     <div>
