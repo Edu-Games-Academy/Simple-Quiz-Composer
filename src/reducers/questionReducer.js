@@ -1,27 +1,19 @@
 import update from 'immutability-helper';
 
+import { createQuestion } from '@/methods/question';
+
 export const Actions = {
   ADD: 'add',
   REMOVE: 'remove',
   UPDATE: 'update',
 };
 
-export const initialQuestions = [
-  {
-    question: '',
-    choices: [
-      {
-        answer: '',
-        isCorrect: true,
-      },
-    ],
-  },
-];
+export const initialQuestions = [createQuestion()];
 
 export const questionsReducer = (state, action) => {
   switch (action.type) {
     case Actions.ADD:
-      return update(state, { $push: initialQuestions });
+      return update(state, { $push: [createQuestion()] });
     case Actions.REMOVE:
       return update(state, { $splice: [[action.index, 1]] });
     case Actions.UPDATE:

@@ -5,6 +5,7 @@ import React from 'react';
 import { ReactComponent as AddIcon } from '@/assets/svg/add.svg';
 import { ReactComponent as DeleteIcon } from '@/assets/svg/delete.svg';
 import Editor from '@/components/Editor';
+import { createChoice } from '@/methods/question';
 
 function RichtextQuestion({ question, onChange }) {
   const isAnswerNonRemovable = (answer) =>
@@ -25,7 +26,7 @@ function RichtextQuestion({ question, onChange }) {
     onChange(
       update(question, {
         choices: {
-          $splice: [[index + 1, 0, { answer: '', isCorrect: false }]],
+          $splice: [[index + 1, 0, createChoice()]],
         },
       }),
     );
@@ -34,12 +35,12 @@ function RichtextQuestion({ question, onChange }) {
     onChange(update(question, { choices: { $splice: [[index, 1]] } }));
   };
   return (
-    <div>
+    <div key={question.id}>
       <h2 className="mb-2 text-xl font-semibold">Question:</h2>
       <Editor value={question.question} onChange={handleQuestionUpdate} />
       <h2 className="my-2 text-xl font-semibold">Answers:</h2>
       {question.choices.map((choice, index) => (
-        <div key={index}>
+        <div key={choice.id}>
           <h3 className="text-l mb-2 font-semibold">Answer {index + 1}:</h3>
           <div className="relative mb-6">
             <div className="absolute inset-y-0 left-0 flex flex-col items-center justify-center gap-2 pl-3">
