@@ -91,7 +91,7 @@ function RichtextQuestion({ question, onChange }) {
                 <AddIcon className="h-8 w-8" fill="currentColor" />
               </button>
             </div>
-            <div className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pl-14">
+            <div className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pl-14 lg:py-5">
               <Editor
                 value={choice.answer}
                 onChange={(val) => handleAnswerUpdate(index, val)}
