@@ -2,9 +2,14 @@ import update from 'immutability-helper';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import { ReactComponent as AddIcon } from '@/assets/svg/add.svg';
+import { ReactComponent as DeleteIcon } from '@/assets/svg/delete.svg';
 import Editor from '@/components/Editor';
 
 function RichtextQuestion({ question, onChange }) {
+  const isAnswerNonRemovable = (answer) =>
+    question.choices.length < 2 || answer.isCorrect;
+
   const handleQuestionUpdate = (value) => {
     onChange({
       ...question,
@@ -16,6 +21,10 @@ function RichtextQuestion({ question, onChange }) {
       update(question, { choices: { [index]: { answer: { $set: value } } } }),
     );
   };
+  const handleAddAnswer = (index) => {
+  };
+  const handleRemoveAnswer = (index) => {
+  };
   return (
     <div>
       <h2 className="mb-2 text-xl font-semibold">Question:</h2>
@@ -24,10 +33,32 @@ function RichtextQuestion({ question, onChange }) {
       {question.choices.map((choice, index) => (
         <div key={index}>
           <h3 className="text-l mb-2 font-semibold">Answer {index + 1}:</h3>
-          <Editor
-            value={choice.answer}
-            onChange={(val) => handleAnswerUpdate(index, val)}
-          />
+          <div className="relative mb-6">
+            <div className="absolute inset-y-0 left-0 flex flex-col items-center justify-center gap-2 pl-3">
+              <button
+                type="button"
+                aria-disabled={isAnswerNonRemovable(choice)}
+                disabled={isAnswerNonRemovable(choice)}
+                className="text-red-400 hover:rounded-lg hover:border hover:bg-red-200 disabled:cursor-not-allowed disabled:bg-transparent"
+                onClick={() => handleRemoveAnswer(index)}
+              >
+                <DeleteIcon className="h-8 w-8" fill="currentColor" />
+              </button>
+              <button
+                type="button"
+                onClick={() => handleAddAnswer(index)}
+                className="text-emerald-400 hover:rounded-lg hover:border hover:bg-emerald-200"
+              >
+                <AddIcon className="h-8 w-8" fill="currentColor" />
+              </button>
+            </div>
+            <div className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pl-14">
+              <Editor
+                value={choice.answer}
+                onChange={(val) => handleAnswerUpdate(index, val)}
+              />
+            </div>
+          </div>
         </div>
       ))}
     </div>
