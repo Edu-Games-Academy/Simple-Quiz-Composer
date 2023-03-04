@@ -24,11 +24,11 @@ function Container() {
 
   const removeQuestion = () => {
     questionsDispatch({ type: Actions.REMOVE, index: selectedQuestion });
-    setSelectedQuestion(
-      selectedQuestion === questions.length - 1
-        ? selectedQuestion - 1
-        : selectedQuestion,
-    );
+    if (selectedQuestion === questions.length - 1) {
+      setSelectedQuestion(selectedQuestion - 1);
+    } else {
+      setQuestion(questions[selectedQuestion + 1]);
+    }
   };
 
   const resetQuestion = () => {
