@@ -1,3 +1,4 @@
+import { parse } from 'gift-pegjs';
 import React, { useContext } from 'react';
 
 import { ReactComponent as DownloadIcon } from '@/assets/svg/download.svg';
@@ -5,6 +6,7 @@ import { ReactComponent as UploadIcon } from '@/assets/svg/upload.svg';
 import { ReactComponent as UploadFileIcon } from '@/assets/svg/upload_file.svg';
 import QuestionsContext from '@/contexts/questionsContext';
 import { downloadAsFile } from '@/methods/downloadAsFile';
+import { createChoice, createQuestion } from '@/methods/question';
 import { Actions } from '@/reducers/questionReducer';
 
 import NavItemUpload from './NavItemUpload';
@@ -13,17 +15,34 @@ function NavBar() {
   const { questions, questionsDispatch, setSelectedQuestion } =
     useContext(QuestionsContext);
 
-  const importJson = (data) => {
-    console.log('🚀 ~ importJson ~ data:', data);
-    const questions = JSON.parse(data);
+  const loadQuestions = (questions) => {
+    console.log('🚀 ~ file: loadQuestions ~ questions:', questions);
     questionsDispatch({
       type: Actions.REPLACE,
       questions,
     });
     setSelectedQuestion(0);
   };
+
+  const importJson = (data) => {
+    console.log('🚀 ~ importJson ~ data:', data);
+    const questions = JSON.parse(data);
+    loadQuestions(questions);
+  };
   const importMoodle = (data) => {
     console.log('🚀 ~ importMoodle ~ data:', data);
+    const questions = parse(data).map((q) =>
+      createQuestion({
+        question: q.stem.text,
+        choices: q.choices.map((c) =>
+          createChoice({
+            answer: c.text.text,
+            isCorrect: c.isCorrect,
+          }),
+        ),
+      }),
+    );
+    loadQuestions(questions);
   };
   const exportJson = () => {
     downloadAsFile({
