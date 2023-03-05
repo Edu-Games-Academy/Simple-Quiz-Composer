@@ -6,6 +6,7 @@ export const Actions = {
   ADD: 'add',
   REMOVE: 'remove',
   UPDATE: 'update',
+  REPLACE: 'replace',
 };
 
 export const initialQuestions = [createQuestion()];
@@ -18,5 +19,7 @@ export const questionsReducer = (state, action) => {
       return update(state, { $splice: [[action.index, 1]] });
     case Actions.UPDATE:
       return update(state, { [action.index]: { $set: action.question } });
+    case Actions.REPLACE:
+      return update(state, { $set: action.questions });
   }
 };
