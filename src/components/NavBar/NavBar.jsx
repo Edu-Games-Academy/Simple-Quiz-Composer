@@ -4,6 +4,7 @@ import { ReactComponent as DownloadIcon } from '@/assets/svg/download.svg';
 import { ReactComponent as UploadIcon } from '@/assets/svg/upload.svg';
 import { ReactComponent as UploadFileIcon } from '@/assets/svg/upload_file.svg';
 import QuestionsContext from '@/contexts/questionsContext';
+import { formatDateStamp } from '@/methods/datetime';
 import { downloadAsFile } from '@/methods/downloadAsFile';
 import { gift2json, json2gift } from '@/methods/moodle';
 import { Actions } from '@/reducers/questionReducer';
@@ -37,7 +38,7 @@ function NavBar() {
   const exportJson = () => {
     downloadAsFile({
       data: JSON.stringify(questions, null, 2),
-      fileName: 'questions.json',
+      fileName: `questions-${formatDateStamp(new Date())}.json`,
       fileType: 'application/json',
     });
   };
@@ -45,7 +46,7 @@ function NavBar() {
     const data = json2gift(questions);
     downloadAsFile({
       data,
-      fileName: 'questions.txt',
+      fileName: `questions-${formatDateStamp(new Date())}.txt`,
     });
   };
   return (

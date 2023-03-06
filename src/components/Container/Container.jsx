@@ -7,6 +7,7 @@ import RawQuestion from '@/components/RawQuestion/RawQuestion';
 import RichtextQuestion from '@/components/RichtextQuestion';
 import TabContainer from '@/components/TabContainer';
 import QuestionsContext from '@/contexts/questionsContext';
+import { deepEqual } from '@/methods/object';
 import { Actions } from '@/reducers/questionReducer';
 
 function Container() {
@@ -19,6 +20,8 @@ function Container() {
 
   const initialQuestion = questions[selectedQuestion];
   const [question, setQuestion] = useState(initialQuestion);
+
+  const isQuestionUnchanged = deepEqual(initialQuestion, question);
 
   const isNonRemovable = questions.length < 2;
 
@@ -68,7 +71,9 @@ function Container() {
       <div className="flex items-center gap-4">
         <button
           type="button"
-          className="inline-flex items-center rounded-lg bg-amber-500 px-5 py-2.5 text-sm font-medium text-white hover:bg-amber-600 focus:outline-none focus:ring-4 focus:ring-amber-700"
+          aria-disabled={isQuestionUnchanged}
+          disabled={isQuestionUnchanged}
+          className="inline-flex items-center rounded-lg bg-yellow-400 px-5 py-2.5 text-sm font-medium text-white hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-900 disabled:cursor-not-allowed disabled:bg-yellow-200"
           onClick={resetQuestion}
         >
           <ResetIcon
@@ -82,7 +87,9 @@ function Container() {
         </button>
         <button
           type="button"
-          className="inline-flex items-center rounded-lg bg-blue-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-800"
+          aria-disabled={isQuestionUnchanged}
+          disabled={isQuestionUnchanged}
+          className="inline-flex items-center rounded-lg bg-blue-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-800 disabled:cursor-not-allowed disabled:bg-blue-400"
           onClick={updateQuestion}
         >
           <SaveIcon
