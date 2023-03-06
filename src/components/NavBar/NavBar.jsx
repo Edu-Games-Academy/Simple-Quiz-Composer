@@ -1,4 +1,3 @@
-import { parse } from 'gift-pegjs';
 import React, { useContext } from 'react';
 
 import { ReactComponent as DownloadIcon } from '@/assets/svg/download.svg';
@@ -6,9 +5,10 @@ import { ReactComponent as UploadIcon } from '@/assets/svg/upload.svg';
 import { ReactComponent as UploadFileIcon } from '@/assets/svg/upload_file.svg';
 import QuestionsContext from '@/contexts/questionsContext';
 import { downloadAsFile } from '@/methods/downloadAsFile';
-import { createChoice, createQuestion } from '@/methods/question';
+import { gift2json, json2gift } from '@/methods/moodle';
 import { Actions } from '@/reducers/questionReducer';
 
+import NavItem from './NavItem';
 import NavItemUpload from './NavItemUpload';
 
 function NavBar() {
@@ -31,17 +31,7 @@ function NavBar() {
   };
   const importMoodle = (data) => {
     console.log('🚀 ~ importMoodle ~ data:', data);
-    const questions = parse(data).map((q) =>
-      createQuestion({
-        question: q.stem.text,
-        choices: q.choices.map((c) =>
-          createChoice({
-            answer: c.text.text,
-            isCorrect: c.isCorrect,
-          }),
-        ),
-      }),
-    );
+    const questions = gift2json(data);
     loadQuestions(questions);
   };
   const exportJson = () => {
@@ -49,6 +39,13 @@ function NavBar() {
       data: JSON.stringify(questions, null, 2),
       fileName: 'questions.json',
       fileType: 'application/json',
+    });
+  };
+  const exportMoodle = () => {
+    const data = json2gift(questions);
+    downloadAsFile({
+      data,
+      fileName: 'questions.txt',
     });
   };
   return (
@@ -77,7 +74,7 @@ function NavBar() {
               focusable="false"
               role="img"
             />
-            Export to JSON
+            Export as JSON
           </button>
         </div>
         <div className="order-1 flex w-auto items-center justify-between">
@@ -101,10 +98,17 @@ function NavBar() {
                 role="img"
               />
               Import Moddle GIFT
-              <span className="ml-1 rounded border border-blue-400 bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800 dark:bg-gray-700 dark:text-blue-400">
-                Beta
-              </span>
             </NavItemUpload>
+            <NavItem onClick={exportMoodle}>
+              <DownloadIcon
+                aria-hidden="true"
+                className="mr-2 -ml-1 h-4 w-4"
+                fill="currentColor"
+                focusable="false"
+                role="img"
+              />
+              Export as Moddle GIFT
+            </NavItem>
           </ul>
         </div>
       </div>
