@@ -54,7 +54,12 @@ function RichtextQuestion({ question, onChange }) {
   return (
     <div key={question.id}>
       <h2 className="mb-2 text-xl font-semibold">Question:</h2>
-      <Editor value={question.question} onChange={handleQuestionUpdate} />
+      <Editor
+        value={question.question}
+        onChange={(val, delta, source) =>
+          source === 'user' && handleQuestionUpdate(val)
+        }
+      />
       <h2 className="my-2 text-xl font-semibold">Answers:</h2>
       {question.choices.map((choice, index) => (
         <div key={choice.id}>
@@ -98,7 +103,9 @@ function RichtextQuestion({ question, onChange }) {
             <div className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pl-14 lg:py-5">
               <Editor
                 value={choice.answer}
-                onChange={(val) => handleAnswerUpdate(index, val)}
+                onChange={(val, delta, source) =>
+                  source === 'user' && handleAnswerUpdate(index, val)
+                }
               />
             </div>
           </div>
