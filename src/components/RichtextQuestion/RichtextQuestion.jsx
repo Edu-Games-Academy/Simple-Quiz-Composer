@@ -89,6 +89,7 @@ function RichtextQuestion({ question, onChange }) {
                   onClick={() => handleToggleAnswer(choice)}
                 >
                   <CheckedIcon className="h-8 w-8" fill="currentColor" />
+                  <span className="sr-only">Mark as correct answer</span>
                 </button>
                 <button
                   type="button"
@@ -98,6 +99,7 @@ function RichtextQuestion({ question, onChange }) {
                   onClick={() => handleRemoveAnswer(index)}
                 >
                   <DeleteIcon className="h-8 w-8" fill="currentColor" />
+                  <span className="sr-only">Remove this answer</span>
                 </button>
                 <button
                   type="button"
@@ -105,6 +107,7 @@ function RichtextQuestion({ question, onChange }) {
                   className="text-blue-400 hover:rounded-lg hover:border hover:bg-blue-200"
                 >
                   <AddIcon className="h-8 w-8" fill="currentColor" />
+                  <span className="sr-only">Add an answer after</span>
                 </button>
               </div>
               <div className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pl-14 lg:py-5">
