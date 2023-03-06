@@ -45,7 +45,7 @@ function Container() {
 
   useEffect(() => {
     resetQuestion();
-  }, [selectedQuestion]);
+  }, [questions, selectedQuestion]);
 
   const action = (
     <div className="flex items-center justify-between px-4 pb-4">

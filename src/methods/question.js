@@ -1,13 +1,16 @@
 import { v4 as uuid } from 'uuid';
 
-export const createChoice = (isCorrect = false) => ({
+export const createChoice = ({ answer = '', isCorrect = false } = {}) => ({
   id: uuid(),
-  answer: '',
+  answer,
   isCorrect,
 });
 
-export const createQuestion = () => ({
+export const createQuestion = ({
+  question = '',
+  choices = [createChoice({ isCorrect: true })],
+} = {}) => ({
   id: uuid(),
-  question: '',
-  choices: [createChoice(true)],
+  question,
+  choices,
 });
