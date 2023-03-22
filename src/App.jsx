@@ -4,14 +4,17 @@ import Container from '@/components/Container';
 import NavBar from '@/components/NavBar';
 import SideBar from '@/components/SideBar';
 import { QuestionsProvider } from '@/contexts/QuestionsContext';
+import { ToastProvider } from '@/contexts/ToastContext';
 
 function App() {
   return (
     <div className="App">
       <QuestionsProvider>
-        <NavBar />
-        <SideBar />
-        <Container />
+        <ToastProvider>
+          <NavBar />
+          <SideBar />
+          <Container />
+        </ToastProvider>
       </QuestionsProvider>
     </div>
   );

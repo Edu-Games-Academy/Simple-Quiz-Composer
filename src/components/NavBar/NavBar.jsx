@@ -4,6 +4,7 @@ import { ReactComponent as DownloadIcon } from '@/assets/svg/download.svg';
 import { ReactComponent as UploadIcon } from '@/assets/svg/upload.svg';
 import { ReactComponent as UploadFileIcon } from '@/assets/svg/upload_file.svg';
 import { useQuestionsContext } from '@/contexts/QuestionsContext';
+import { useToastContext } from '@/contexts/ToastContext';
 import { formatDateStamp } from '@/methods/datetime';
 import { downloadAsFile } from '@/methods/downloadAsFile';
 import { gift2json, json2gift } from '@/methods/moodle';
@@ -15,6 +16,7 @@ import NavItemUpload from './NavItemUpload';
 function NavBar() {
   const { questions, questionsDispatch, setSelectedQuestion } =
     useQuestionsContext();
+  const { toastSuccess, toastError } = useToastContext();
 
   const loadQuestions = (questions) => {
     console.log('🚀 ~ file: loadQuestions ~ questions:', questions);
@@ -27,13 +29,25 @@ function NavBar() {
 
   const importJson = (data) => {
     console.log('🚀 ~ importJson ~ data:', data);
-    const questions = JSON.parse(data);
-    loadQuestions(questions);
+    try {
+      const questions = JSON.parse(data);
+      loadQuestions(questions);
+      toastSuccess('Loaded successfully.');
+    } catch (error) {
+      console.error(error);
+      toastError('Error loading file!');
+    }
   };
   const importMoodle = (data) => {
     console.log('🚀 ~ importMoodle ~ data:', data);
-    const questions = gift2json(data);
-    loadQuestions(questions);
+    try {
+      const questions = gift2json(data);
+      loadQuestions(questions);
+      toastSuccess('Loaded successfully.');
+    } catch (error) {
+      console.error(error);
+      toastError('Error loading file!');
+    }
   };
   const exportJson = () => {
     downloadAsFile({
