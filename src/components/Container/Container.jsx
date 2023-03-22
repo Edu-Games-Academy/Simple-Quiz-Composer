@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { ReactComponent as DeleteForeverIcon } from '@/assets/svg/delete_forever.svg';
 import { ReactComponent as ResetIcon } from '@/assets/svg/restart.svg';
@@ -6,7 +6,7 @@ import { ReactComponent as SaveIcon } from '@/assets/svg/save.svg';
 import RawQuestion from '@/components/RawQuestion/RawQuestion';
 import RichtextQuestion from '@/components/RichtextQuestion';
 import TabContainer from '@/components/TabContainer';
-import QuestionsContext from '@/contexts/questionsContext';
+import { useQuestionsContext } from '@/contexts/QuestionsContext';
 import { deepEqual } from '@/methods/object';
 import { Actions } from '@/reducers/questionReducer';
 
@@ -16,7 +16,7 @@ function Container() {
     questionsDispatch,
     selectedQuestion,
     setSelectedQuestion,
-  } = useContext(QuestionsContext);
+  } = useQuestionsContext();
 
   const initialQuestion = questions[selectedQuestion];
   const [question, setQuestion] = useState(initialQuestion);

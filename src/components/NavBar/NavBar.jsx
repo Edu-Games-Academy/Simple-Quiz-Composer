@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
 import { ReactComponent as DownloadIcon } from '@/assets/svg/download.svg';
 import { ReactComponent as UploadIcon } from '@/assets/svg/upload.svg';
 import { ReactComponent as UploadFileIcon } from '@/assets/svg/upload_file.svg';
-import QuestionsContext from '@/contexts/questionsContext';
+import { useQuestionsContext } from '@/contexts/QuestionsContext';
 import { formatDateStamp } from '@/methods/datetime';
 import { downloadAsFile } from '@/methods/downloadAsFile';
 import { gift2json, json2gift } from '@/methods/moodle';
@@ -14,7 +14,7 @@ import NavItemUpload from './NavItemUpload';
 
 function NavBar() {
   const { questions, questionsDispatch, setSelectedQuestion } =
-    useContext(QuestionsContext);
+    useQuestionsContext();
 
   const loadQuestions = (questions) => {
     console.log('🚀 ~ file: loadQuestions ~ questions:', questions);

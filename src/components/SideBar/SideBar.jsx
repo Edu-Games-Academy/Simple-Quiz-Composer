@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
-import QuestionsContext from '@/contexts/questionsContext';
+import { useQuestionsContext } from '@/contexts/QuestionsContext';
 import { Actions } from '@/reducers/questionReducer';
 
 import SideBarButton from './SideBarButton';
@@ -11,7 +11,7 @@ function SideBar() {
     questionsDispatch,
     selectedQuestion,
     setSelectedQuestion,
-  } = useContext(QuestionsContext);
+  } = useQuestionsContext();
   const addQuestion = () => {
     questionsDispatch({ type: Actions.ADD });
     setSelectedQuestion(questions.length);

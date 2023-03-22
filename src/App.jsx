@@ -1,32 +1,18 @@
-import React, { useReducer, useState } from 'react';
+import React from 'react';
 
 import Container from '@/components/Container';
 import NavBar from '@/components/NavBar';
 import SideBar from '@/components/SideBar';
-import QuestionsContext from '@/contexts/questionsContext';
-import { initialQuestions, questionsReducer } from '@/reducers/questionReducer';
+import { QuestionsProvider } from '@/contexts/QuestionsContext';
 
 function App() {
-  const [questions, questionsDispatch] = useReducer(
-    questionsReducer,
-    initialQuestions,
-  );
-  const [selectedQuestion, setSelectedQuestion] = useState(0);
-
   return (
     <div className="App">
-      <QuestionsContext.Provider
-        value={{
-          questions,
-          questionsDispatch,
-          selectedQuestion,
-          setSelectedQuestion,
-        }}
-      >
+      <QuestionsProvider>
         <NavBar />
         <SideBar />
         <Container />
-      </QuestionsContext.Provider>
+      </QuestionsProvider>
     </div>
   );
 }
