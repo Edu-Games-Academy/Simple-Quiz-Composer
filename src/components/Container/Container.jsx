@@ -69,6 +69,11 @@ function Container() {
         Remove
       </button>
       <div className="flex items-center gap-4">
+        {!isQuestionUnchanged && (
+          <div className="px-2.5 text-sm text-red-500">
+            Question has changed. Remember to save before leaving.
+          </div>
+        )}
         <button
           type="button"
           aria-disabled={isQuestionUnchanged}
