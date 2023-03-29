@@ -17,15 +17,23 @@ export const gift2json = (txt) => {
   return questions;
 };
 
-export const json2gift = (json) => {
-  return json
-    .map(
-      (q, i) => `
-// question ${i + 1}
-::${q.question.substr(0, 100)}::${q.question}{
-${q.choices.map((c) => `${c.isCorrect ? '=' : '~'}${c.answer}`).join('\n')}
+const escapeMoodleStr = (str) => str.replaceAll(/[~=#{}:\\]/g, '\\$&');
+
+const giftQuestion = (index, question) => {
+  const text = escapeMoodleStr(question.question);
+  const answers = (choices) =>
+    choices
+      .map((c) => `${c.isCorrect ? '=' : '~'}${escapeMoodleStr(c.answer)}`)
+      .join('\n');
+
+  return `
+// question ${index}
+[html]${text} {
+${answers(question.choices)}
 }
-`,
-    )
-    .join('');
+`;
+};
+
+export const json2gift = (json) => {
+  return json.map((q, i) => giftQuestion(i + 1, q)).join('');
 };
