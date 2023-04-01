@@ -13,6 +13,8 @@ import { Actions } from '@/reducers/questionReducer';
 import NavItem from './NavItem';
 import NavItemUpload from './NavItemUpload';
 
+const version = 'Version ' + import.meta.env.VITE_APP_VERSION;
+
 function NavBar() {
   const { questions, questionsDispatch, setSelectedQuestion } =
     useQuestionsContext();
@@ -66,7 +68,7 @@ function NavBar() {
   return (
     <nav className="fixed top-0 z-50 w-full border-b border-gray-700 bg-gray-800">
       <div className="container mx-auto flex flex-wrap items-center justify-between p-2">
-        <a href="https://flowbite.com/" className="flex items-center">
+        <h1 title={version} className="flex items-center">
           <img
             src={`${import.meta.env.BASE_URL}logo.svg`}
             className="mr-3 h-9"
@@ -75,7 +77,7 @@ function NavBar() {
           <span className="self-center whitespace-nowrap text-xl font-semibold text-white">
             Simple Quiz Composer
           </span>
-        </a>
+        </h1>
         <div className="order-2 flex">
           <button
             type="button"

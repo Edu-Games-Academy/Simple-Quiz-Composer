@@ -1748,6 +1748,18 @@ gift-pegjs@^0.2.1:
   dependencies:
     pegjs "^0.10.x"
 
+git-repo-info@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/git-repo-info/-/git-repo-info-1.4.1.tgz#2a072823254aaf62fcf0766007d7b6651bd41943"
+  integrity sha512-oqzBH6cNvE8Cq3p61ps4m0POZrVMKlARntc2BxLnuqTK+HeWpKfUMJQ7H1CvescHRINj+0a7TKA+Pp/bOq5F1Q==
+
+git-repo-version@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/git-repo-version/-/git-repo-version-1.0.2.tgz#2c8e9bee5d970cafc0dd58480f9dc56d9afe8e4f"
+  integrity sha512-OPtwtHx9E8/rTMcWT+BU6GNj6Kq/O40bHJZaZAGy+pN2RXGmeKcfr0ix4M+SQuFY8vl5L/wfPSGOAtvUT/e3Qg==
+  dependencies:
+    git-repo-info "^1.4.1"
+
 glob-parent@^5.1.2, glob-parent@~5.1.2:
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/glob-parent/-/glob-parent-5.1.2.tgz#869832c58034fe68a4093c17dc15e8340d8401c4"
