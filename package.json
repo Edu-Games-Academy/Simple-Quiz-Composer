@@ -15,6 +15,7 @@
     "format-code": "yarn custom-eslint && yarn custom-prettier"
   },
   "dependencies": {
+    "flowbite": "^1.6.4",
     "highlight.js": "^11.7.0",
     "katex": "^0.16.4",
     "prop-types": "^15.8.1",
