@@ -36,7 +36,7 @@ function Toast({ type, text, onClose }) {
         onClick={onClose}
       >
         <span className="sr-only">Close</span>
-        <CloseIcon aria-hidden="true" class="h-5 w-5" fill="currentColor" />
+        <CloseIcon aria-hidden="true" className="h-5 w-5" fill="currentColor" />
       </button>
     </div>
   );
