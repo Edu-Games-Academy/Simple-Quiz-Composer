@@ -44,7 +44,7 @@ function TabContainer({ tabs, children, action }) {
 
 TabContainer.propTypes = {
   tabs: PropTypes.arrayOf(PropTypes.string),
-  children: PropTypes.arrayOf(PropTypes.element),
+  children: PropTypes.node,
   action: PropTypes.element,
 };
 

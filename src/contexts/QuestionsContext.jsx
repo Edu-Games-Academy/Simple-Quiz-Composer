@@ -29,7 +29,7 @@ function QuestionsProvider({ children }) {
 }
 
 QuestionsProvider.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.element),
+  children: PropTypes.node,
 };
 
 export { useQuestionsContext, QuestionsProvider };

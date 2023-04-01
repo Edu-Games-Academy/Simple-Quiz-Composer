@@ -40,7 +40,7 @@ function ToastProvider({ children }) {
 }
 
 ToastProvider.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.element),
+  children: PropTypes.node,
 };
 
 export { useToastContext, ToastProvider };
