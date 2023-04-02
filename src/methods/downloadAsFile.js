@@ -1,6 +1,6 @@
 export const downloadAsFile = ({
   data,
-  fileName = 'data.json',
+  fileName = 'data.txt',
   fileType = 'text/plain',
 }) => {
   const blob = new Blob([data], { type: fileType });

@@ -7,7 +7,8 @@ import { useQuestionsContext } from '@/contexts/QuestionsContext';
 import { useToastContext } from '@/contexts/ToastContext';
 import { formatDateStamp } from '@/methods/datetime';
 import { downloadAsFile } from '@/methods/downloadAsFile';
-import { gift2json, json2gift } from '@/methods/moodle';
+import gift from '@/methods/question-formats/gift';
+import json from '@/methods/question-formats/json';
 import { Actions } from '@/reducers/questionReducer';
 
 import NavItem from './NavItem';
@@ -29,40 +30,23 @@ function NavBar() {
     setSelectedQuestion(0);
   };
 
-  const importJson = (data) => {
-    console.log('🚀 ~ importJson ~ data:', data);
+  const importFile = (module, data) => {
+    console.log('🚀 ~ importFile ~ data:', data);
     try {
-      const questions = JSON.parse(data);
-      loadQuestions(questions);
+      loadQuestions(module.importFrom(data));
       toastSuccess('Loaded successfully.');
     } catch (error) {
       console.error(error);
       toastError('Error loading file!');
     }
   };
-  const importMoodle = (data) => {
-    console.log('🚀 ~ importMoodle ~ data:', data);
-    try {
-      const questions = gift2json(data);
-      loadQuestions(questions);
-      toastSuccess('Loaded successfully.');
-    } catch (error) {
-      console.error(error);
-      toastError('Error loading file!');
-    }
-  };
-  const exportJson = () => {
+  const exportFile = (module) => {
     downloadAsFile({
-      data: JSON.stringify(questions, null, 2),
-      fileName: `questions-${formatDateStamp(new Date())}.json`,
-      fileType: 'application/json',
-    });
-  };
-  const exportMoodle = () => {
-    const data = json2gift(questions);
-    downloadAsFile({
-      data,
-      fileName: `questions-${formatDateStamp(new Date())}.txt`,
+      data: module.exportTo(questions),
+      fileName: `questions-${formatDateStamp(new Date())}.${
+        module.fileExtension
+      }`,
+      fileType: module.fileType,
     });
   };
   return (
@@ -82,7 +66,7 @@ function NavBar() {
           <button
             type="button"
             className="mr-0 inline-flex items-center rounded-lg bg-blue-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-800"
-            onClick={exportJson}
+            onClick={() => exportFile(json)}
           >
             <DownloadIcon
               aria-hidden="true"
@@ -96,7 +80,7 @@ function NavBar() {
         </div>
         <div className="order-1 flex w-auto items-center justify-between">
           <ul className="mt-0 flex flex-row space-x-8 rounded-lg border-0 bg-gray-800 p-4 text-sm font-medium">
-            <NavItemUpload onFilesUploaded={importJson}>
+            <NavItemUpload onFilesUploaded={(data) => importFile(json, data)}>
               <UploadIcon
                 aria-hidden="true"
                 className="mr-2 -ml-1 h-4 w-4"
@@ -106,7 +90,7 @@ function NavBar() {
               />
               Import JSON
             </NavItemUpload>
-            <NavItemUpload onFilesUploaded={importMoodle}>
+            <NavItemUpload onFilesUploaded={(data) => importFile(gift, data)}>
               <UploadFileIcon
                 aria-hidden="true"
                 className="mr-2 -ml-1 h-4 w-4"
@@ -116,7 +100,7 @@ function NavBar() {
               />
               Import Moddle GIFT
             </NavItemUpload>
-            <NavItem onClick={exportMoodle}>
+            <NavItem onClick={() => exportFile(gift)}>
               <DownloadIcon
                 aria-hidden="true"
                 className="mr-2 -ml-1 h-4 w-4"
