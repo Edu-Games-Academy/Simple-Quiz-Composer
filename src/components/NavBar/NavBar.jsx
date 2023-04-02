@@ -8,6 +8,7 @@ import { formatDateStamp } from '@/methods/datetime';
 import { downloadAsFile } from '@/methods/downloadAsFile';
 import gift from '@/methods/question-formats/gift';
 import json from '@/methods/question-formats/json';
+import qal from '@/methods/question-formats/qal';
 import { Actions } from '@/reducers/questionReducer';
 
 import NavItemButtonOptions from './NavItemButtonOptions';
@@ -24,6 +25,7 @@ function NavBar() {
     () => ({
       json,
       gift,
+      qal,
     }),
     [],
   );
@@ -32,6 +34,7 @@ function NavBar() {
     () => ({
       json: 'JSON',
       gift: 'Moodle GIFT',
+      qal: 'QuestionAnswer Lines',
     }),
     [],
   );
