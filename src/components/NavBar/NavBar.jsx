@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 
 import { ReactComponent as DownloadIcon } from '@/assets/svg/download.svg';
 import { ReactComponent as UploadIcon } from '@/assets/svg/upload.svg';
-import { ReactComponent as UploadFileIcon } from '@/assets/svg/upload_file.svg';
 import { useQuestionsContext } from '@/contexts/QuestionsContext';
 import { useToastContext } from '@/contexts/ToastContext';
 import { formatDateStamp } from '@/methods/datetime';
@@ -11,8 +10,8 @@ import gift from '@/methods/question-formats/gift';
 import json from '@/methods/question-formats/json';
 import { Actions } from '@/reducers/questionReducer';
 
-import NavItem from './NavItem';
-import NavItemUpload from './NavItemUpload';
+import NavItemButtonOptions from './NavItemButtonOptions';
+import NavItemButtonOptionsUpload from './NavItemButtonOptionsUpload';
 
 const version = 'Version ' + import.meta.env.VITE_APP_VERSION;
 
@@ -20,6 +19,22 @@ function NavBar() {
   const { questions, questionsDispatch, setSelectedQuestion } =
     useQuestionsContext();
   const { toastSuccess, toastError } = useToastContext();
+
+  const modules = useMemo(
+    () => ({
+      json,
+      gift,
+    }),
+    [],
+  );
+
+  const options = useMemo(
+    () => ({
+      json: 'JSON',
+      gift: 'Moodle GIFT',
+    }),
+    [],
+  );
 
   const loadQuestions = (questions) => {
     console.log('🚀 ~ file: loadQuestions ~ questions:', questions);
@@ -30,7 +45,8 @@ function NavBar() {
     setSelectedQuestion(0);
   };
 
-  const importFile = (module, data) => {
+  const importFile = (type, data) => {
+    const module = modules[type];
     console.log('🚀 ~ importFile ~ data:', data);
     try {
       loadQuestions(module.importFrom(data));
@@ -40,7 +56,8 @@ function NavBar() {
       toastError('Error loading file!');
     }
   };
-  const exportFile = (module) => {
+  const exportFile = (type) => {
+    const module = modules[type];
     downloadAsFile({
       data: module.exportTo(questions),
       fileName: `questions-${formatDateStamp(new Date())}.${
@@ -62,56 +79,34 @@ function NavBar() {
             Simple Quiz Composer
           </span>
         </h1>
-        <div className="order-2 flex">
-          <button
-            type="button"
-            className="mr-0 inline-flex items-center rounded-lg bg-blue-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-800"
-            onClick={() => exportFile(json)}
-          >
-            <DownloadIcon
-              aria-hidden="true"
-              className="mr-2 -ml-1 h-5 w-6"
-              fill="currentColor"
-              focusable="false"
-              role="img"
-            />
-            Export as JSON
-          </button>
-        </div>
-        <div className="order-1 flex w-auto items-center justify-between">
-          <ul className="mt-0 flex flex-row space-x-8 rounded-lg border-0 bg-gray-800 p-4 text-sm font-medium">
-            <NavItemUpload onFilesUploaded={(data) => importFile(json, data)}>
-              <UploadIcon
-                aria-hidden="true"
-                className="mr-2 -ml-1 h-4 w-4"
-                fill="currentColor"
-                focusable="false"
-                role="img"
-              />
-              Import JSON
-            </NavItemUpload>
-            <NavItemUpload onFilesUploaded={(data) => importFile(gift, data)}>
-              <UploadFileIcon
-                aria-hidden="true"
-                className="mr-2 -ml-1 h-4 w-4"
-                fill="currentColor"
-                focusable="false"
-                role="img"
-              />
-              Import Moddle GIFT
-            </NavItemUpload>
-            <NavItem onClick={() => exportFile(gift)}>
-              <DownloadIcon
-                aria-hidden="true"
-                className="mr-2 -ml-1 h-4 w-4"
-                fill="currentColor"
-                focusable="false"
-                role="img"
-              />
-              Export as Moddle GIFT
-            </NavItem>
-          </ul>
-        </div>
+        <NavItemButtonOptionsUpload
+          options={options}
+          defaultValue="json"
+          onFilesUploaded={(type, data) => importFile(type, data)}
+        >
+          <UploadIcon
+            aria-hidden="true"
+            className="mr-2 -ml-1 h-4 w-4"
+            fill="currentColor"
+            focusable="false"
+            role="img"
+          />
+          Import from
+        </NavItemButtonOptionsUpload>
+        <NavItemButtonOptions
+          options={options}
+          defaultValue="json"
+          onClick={(type) => exportFile(type)}
+        >
+          <DownloadIcon
+            aria-hidden="true"
+            className="mr-2 -ml-1 h-4 w-4"
+            fill="currentColor"
+            focusable="false"
+            role="img"
+          />
+          Export as
+        </NavItemButtonOptions>
       </div>
     </nav>
   );
