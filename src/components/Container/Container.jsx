@@ -50,6 +50,12 @@ function Container() {
     resetQuestion();
   }, [questions, selectedQuestion]);
 
+  const warning = !isQuestionUnchanged && (
+    <div className="px-2.5 text-sm text-red-500">
+      Question has changed. Remember to save before leaving.
+    </div>
+  );
+
   const action = (
     <div className="flex items-center justify-between px-4 pb-4">
       <button
@@ -69,11 +75,6 @@ function Container() {
         Remove
       </button>
       <div className="flex items-center gap-4">
-        {!isQuestionUnchanged && (
-          <div className="px-2.5 text-sm text-red-500">
-            Question has changed. Remember to save before leaving.
-          </div>
-        )}
         <button
           type="button"
           aria-disabled={isQuestionUnchanged}
@@ -113,7 +114,11 @@ function Container() {
   return (
     <div className="ml-64 mt-28 p-4 lg:mt-16">
       <TabContainer tabs={['Rich-text', 'Raw']} action={action}>
-        <RichtextQuestion question={question} onChange={setQuestion} />
+        <RichtextQuestion
+          question={question}
+          onChange={setQuestion}
+          warning={warning}
+        />
         <RawQuestion question={question} />
       </TabContainer>
     </div>

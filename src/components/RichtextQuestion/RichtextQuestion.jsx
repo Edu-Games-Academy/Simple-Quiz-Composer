@@ -8,7 +8,7 @@ import { ReactComponent as DeleteIcon } from '@/assets/svg/delete.svg';
 import Editor from '@/components/Editor';
 import { createChoice } from '@/methods/question';
 
-function RichtextQuestion({ question, onChange }) {
+function RichtextQuestion({ question, onChange, warning }) {
   const isAnswerNonRemovable = (answer) =>
     question.choices.length < 2 || answer.isCorrect;
 
@@ -60,6 +60,7 @@ function RichtextQuestion({ question, onChange }) {
           source === 'user' && handleQuestionUpdate(val)
         }
       />
+      {warning}
       <h2 className="my-2 text-xl font-semibold">Answers:</h2>
       {question.choices.map((choice, index) => (
         <div key={choice.id}>
@@ -107,6 +108,7 @@ function RichtextQuestion({ question, onChange }) {
                   source === 'user' && handleAnswerUpdate(index, val)
                 }
               />
+              {warning}
             </div>
           </div>
         </div>
@@ -118,6 +120,7 @@ function RichtextQuestion({ question, onChange }) {
 RichtextQuestion.propTypes = {
   question: PropTypes.object.isRequired,
   onChange: PropTypes.func,
+  warning: PropTypes.node,
 };
 
 export default RichtextQuestion;
