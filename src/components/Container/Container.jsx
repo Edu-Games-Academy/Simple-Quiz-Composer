@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { ReactComponent as DeleteForeverIcon } from '@/assets/svg/delete_forever.svg';
 import { ReactComponent as ResetIcon } from '@/assets/svg/restart.svg';
 import { ReactComponent as SaveIcon } from '@/assets/svg/save.svg';
-import RawQuestion from '@/components/RawQuestion/RawQuestion';
+import Preview from '@/components/Preview/Preview';
 import RichtextQuestion from '@/components/RichtextQuestion';
 import TabContainer from '@/components/TabContainer';
 import { useQuestionsContext } from '@/contexts/QuestionsContext';
@@ -113,13 +113,13 @@ function Container() {
 
   return (
     <div className="ml-64 mt-28 p-4 lg:mt-16">
-      <TabContainer tabs={['Rich-text', 'Raw']} action={action}>
+      <TabContainer tabs={['Editor', 'Preview']} action={action}>
         <RichtextQuestion
           question={question}
           onChange={setQuestion}
           warning={warning}
         />
-        <RawQuestion question={question} />
+        <Preview question={question} />
       </TabContainer>
     </div>
   );
