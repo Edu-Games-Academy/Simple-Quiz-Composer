@@ -18,6 +18,8 @@ function Container() {
     setSelectedQuestion,
   } = useQuestionsContext();
 
+  const [richtextMode, setRichtextMode] = useState(true);
+
   const initialQuestion = questions[selectedQuestion];
   const [question, setQuestion] = useState(initialQuestion);
 
@@ -114,11 +116,27 @@ function Container() {
   return (
     <div className="ml-64 mt-28 p-4 lg:mt-16">
       <TabContainer tabs={['Editor', 'Preview']} action={action}>
-        <RichtextQuestion
-          question={question}
-          onChange={setQuestion}
-          warning={warning}
-        />
+        <div>
+          <label className="relative inline-flex cursor-pointer items-center">
+            <input
+              type="checkbox"
+              value=""
+              className="peer sr-only"
+              checked={richtextMode}
+              onChange={() => setRichtextMode(!richtextMode)}
+            />
+            <div className="peer h-6 w-11 rounded-full border-gray-600 bg-gray-700 after:absolute after:top-[2px] after:left-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-600 peer-checked:after:translate-x-full peer-checked:after:border-white" />
+            <span className="ml-3 text-sm font-medium text-gray-900">
+              Use Rich-text Editor
+            </span>
+          </label>
+          <RichtextQuestion
+            question={question}
+            onChange={setQuestion}
+            warning={warning}
+            richtextMode={richtextMode}
+          />
+        </div>
         <Preview question={question} />
       </TabContainer>
     </div>

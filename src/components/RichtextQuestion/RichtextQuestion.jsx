@@ -8,7 +8,7 @@ import { ReactComponent as DeleteIcon } from '@/assets/svg/delete.svg';
 import Editor from '@/components/Editor';
 import { createChoice } from '@/methods/question';
 
-function RichtextQuestion({ question, onChange, warning }) {
+function RichtextQuestion({ question, richtextMode, onChange, warning }) {
   const isAnswerNonRemovable = (answer) =>
     question.choices.length < 2 || answer.isCorrect;
 
@@ -56,9 +56,8 @@ function RichtextQuestion({ question, onChange, warning }) {
       <h2 className="mb-2 text-xl font-semibold">Question:</h2>
       <Editor
         value={question.question}
-        onChange={(val, delta, source) =>
-          source === 'user' && handleQuestionUpdate(val)
-        }
+        onChange={handleQuestionUpdate}
+        richtextMode={richtextMode}
       />
       {warning}
       <h2 className="my-2 text-xl font-semibold">Answers:</h2>
@@ -104,9 +103,8 @@ function RichtextQuestion({ question, onChange, warning }) {
             <div className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pl-14 lg:py-5">
               <Editor
                 value={choice.answer}
-                onChange={(val, delta, source) =>
-                  source === 'user' && handleAnswerUpdate(index, val)
-                }
+                onChange={(val) => handleAnswerUpdate(index, val)}
+                richtextMode={richtextMode}
               />
               {warning}
             </div>
@@ -119,6 +117,7 @@ function RichtextQuestion({ question, onChange, warning }) {
 
 RichtextQuestion.propTypes = {
   question: PropTypes.object.isRequired,
+  richtextMode: PropTypes.bool,
   onChange: PropTypes.func,
   warning: PropTypes.node,
 };
