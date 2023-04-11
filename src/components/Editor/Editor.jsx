@@ -12,7 +12,7 @@ function Editor({ value, onChange, richtextMode }) {
   ) : (
     <textarea
       rows="3"
-      className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+      className="my-2.5 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
       value={value}
       onChange={(e) => onChange(e.target.value)}
     />
