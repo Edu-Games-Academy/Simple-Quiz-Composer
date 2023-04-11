@@ -65,6 +65,53 @@ function NavBar() {
       fileType: module.fileType,
     });
   };
+
+  const renderMenu = (id) => (
+    <ul
+      className="py-2 text-sm text-gray-200 sm:flex sm:flex-row sm:py-0"
+      aria-labelledby="importExportDownloadButton"
+    >
+      <NavItemButtonOptionsUpload
+        options={options}
+        name={`upload-${id}`}
+        onFilesUploaded={(type, data) => importFile(type, data)}
+      >
+        <ChevronLeftIcon
+          aria-hidden="true"
+          class="h-4 w-4 sm:hidden"
+          fill="currentColor"
+        />
+        <span className="mx-2">Import</span>
+        <UploadIcon
+          aria-hidden="true"
+          class="h-4 w-4"
+          fill="currentColor"
+          focusable="false"
+          role="img"
+        />
+      </NavItemButtonOptionsUpload>
+      <NavItemButtonOptions
+        options={options}
+        name={`download-${id}`}
+        onClick={(type) => exportFile(type)}
+      >
+        <ChevronLeftIcon
+          aria-hidden="true"
+          class="h-4 w-4 sm:hidden"
+          fill="currentColor"
+        />
+        <span className="mx-2">Export</span>
+        <DownloadIcon
+          aria-hidden="true"
+          className="h-4 w-4"
+          fill="currentColor"
+          focusable="false"
+          role="img"
+        />
+      </NavItemButtonOptions>
+    </ul>
+  );
+
   return (
     <nav className="fixed top-0 z-50 w-full border-b  border-gray-700 bg-gray-800">
       <div className="px-3 py-3 lg:px-5 lg:pl-3">
@@ -95,7 +142,7 @@ function NavBar() {
               </span>
             </h1>
           </div>
-          <div className="ml-3 flex items-center">
+          <div className="ml-3 flex items-center sm:hidden">
             <div>
               <button
                 id="importExportDownloadButton"
@@ -116,50 +163,11 @@ function NavBar() {
               className="z-50 my-4 hidden list-none divide-y divide-gray-600 rounded bg-gray-700 text-base shadow"
               id="dropdown-imexport"
             >
-              <ul
-                className="py-2 text-sm text-gray-200"
-                aria-labelledby="importExportDownloadButton"
-              >
-                <NavItemButtonOptionsUpload
-                  options={options}
-                  name="upload"
-                  onFilesUploaded={(type, data) => importFile(type, data)}
-                >
-                  <ChevronLeftIcon
-                    aria-hidden="true"
-                    class="h-4 w-4"
-                    fill="currentColor"
-                  />
-                  <span className="mx-2">Import</span>
-                  <UploadIcon
-                    aria-hidden="true"
-                    class="h-4 w-4"
-                    fill="currentColor"
-                    focusable="false"
-                    role="img"
-                  />
-                </NavItemButtonOptionsUpload>
-                <NavItemButtonOptions
-                  options={options}
-                  name="download"
-                  onClick={(type) => exportFile(type)}
-                >
-                  <ChevronLeftIcon
-                    aria-hidden="true"
-                    class="h-4 w-4"
-                    fill="currentColor"
-                  />
-                  <span className="mx-2">Export</span>
-                  <DownloadIcon
-                    aria-hidden="true"
-                    className="h-4 w-4"
-                    fill="currentColor"
-                    focusable="false"
-                    role="img"
-                  />
-                </NavItemButtonOptions>
-              </ul>
+              {renderMenu('mobile')}
             </div>
+          </div>
+          <div className="hidden items-center sm:flex">
+            {renderMenu('desktop')}
           </div>
         </div>
       </div>
