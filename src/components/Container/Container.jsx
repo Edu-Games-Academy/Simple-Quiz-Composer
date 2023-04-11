@@ -59,7 +59,7 @@ function Container() {
   );
 
   const action = (
-    <div className="flex items-center justify-between px-4 pb-4">
+    <div className="flex flex-col items-center space-y-4 px-4 pb-4 sm:flex-row sm:justify-between sm:space-y-0">
       <button
         type="button"
         aria-disabled={isNonRemovable}
@@ -114,7 +114,7 @@ function Container() {
   );
 
   return (
-    <div className="ml-64 mt-28 p-4 lg:mt-16">
+    <div className="mt-16 p-4 sm:ml-64">
       <TabContainer tabs={['Editor', 'Preview']} action={action}>
         <div>
           <label className="relative inline-flex cursor-pointer items-center">

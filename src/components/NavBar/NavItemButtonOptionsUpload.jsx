@@ -5,12 +5,12 @@ import NavItemButtonOptions from './NavItemButtonOptions';
 
 function NavItemButtonOptionsUpload({
   onFilesUploaded,
-  defaultValue,
+  name,
   options = {},
   children,
 }) {
   const fileInputRef = useRef(null);
-  const [value, setValue] = useState(defaultValue);
+  const [value, setValue] = useState();
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -36,13 +36,13 @@ function NavItemButtonOptionsUpload({
         setValue(_value);
         handleButtonClick();
       }}
-      defaultValue={defaultValue}
+      name={name}
       options={options}
     >
       <input
         type="file"
         ref={fileInputRef}
-        className="absolute top-0 left-0 opacity-0"
+        className="hidden"
         onChange={handleFileChange}
       />
       {children}
@@ -52,7 +52,7 @@ function NavItemButtonOptionsUpload({
 
 NavItemButtonOptionsUpload.propTypes = {
   children: PropTypes.node.isRequired,
-  defaultValue: PropTypes.string,
+  name: PropTypes.string.isRequired,
   options: PropTypes.objectOf(PropTypes.string),
   onFilesUploaded: PropTypes.func,
 };
