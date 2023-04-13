@@ -1,0 +1,30 @@
+name: Generate web app, docs and coverage report
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - sqc-core-functions/**
+      - app/**
+jobs:
+  generate-app-docs-coverage:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/steps/docs-coverage-report
+        with:
+          directory: sqc-core-functions
+      - uses: ./.github/steps/build-app
+        with:
+          directory: app
+      - name: Prepare folder for gh-pages
+        run: |
+          mv app/dist gh-pages
+          mv sqc-core-functions/gh-pages ./gh-pages/sqc-core-functions
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: gh-pages

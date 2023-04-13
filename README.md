@@ -9,3 +9,7 @@ A visual editor that generate/modify quiz in JSON format
    - JSON
    - Moodle GIFT
    - QuestionAnswer Lines
+
+## Documents
+
+- [Core Functions](/sqc-core-functions/README.md)

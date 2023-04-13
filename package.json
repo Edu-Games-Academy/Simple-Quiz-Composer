@@ -1,0 +1,25 @@
+{
+  "name": "simple-quiz-composer",
+  "homepage": "https://edu-games-academy.github.io/Simple-Quiz-Composer",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "sqc-core-functions/**/*.ts": "yarn --cwd sqc-core-functions run lint:fix"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.0.2",
+    "@commitlint/config-conventional": "^17.0.2",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.2"
+  }
+}
