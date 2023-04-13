@@ -1,2 +1,2 @@
-FingerprintJS Pro v<%= pkg.version %> - Copyright (c) FingerprintJS, Inc, <%= new Date().getFullYear() %> (https://fingerprint.com)
+Simple Quiz Composer Core v<%= pkg.version %> - Copyright (c) Edu Games Academy, <%= new Date().getFullYear() %> (https://github.com/Edu-Games-Academy)
 Licensed under the MIT (http://www.opensource.org/licenses/mit-license.php) license.
