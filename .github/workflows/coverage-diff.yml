@@ -1,0 +1,16 @@
+name: Check coverage for PR
+on:
+  pull_request:
+jobs:
+  test-coverage-core:
+    runs-on: ubuntu-20.04
+    name: Run tests & check coverage on Core
+    permissions:
+      checks: write
+      pull-requests: write
+      contents: read # for private repos
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/steps/test-coverage
+        with:
+          directory: core
