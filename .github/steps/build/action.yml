@@ -1,0 +1,43 @@
+name: Test Build
+description: Lint, Build, Test
+inputs:
+  directory:
+    description: "Working directory"
+    required: true
+    default: "./"
+runs:
+  using: "composite"
+  steps:
+    - name: Cache
+      uses: actions/cache@v2
+      with:
+        path: |
+          ${{inputs.directory}}/**/node_modules
+          !**/dist/node_modules
+        key: nodemodules-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: nodemodules-
+
+    - name: Install Node packages
+      run: yarn install
+      shell: bash
+      working-directory: ${{inputs.directory}}
+
+    - name: Lint
+      run: yarn lint
+      shell: bash
+      working-directory: ${{inputs.directory}}
+
+    - name: Tests
+      run: yarn test
+      shell: bash
+      working-directory: ${{inputs.directory}}
+
+    - name: Build
+      run: yarn build
+      shell: bash
+      working-directory: ${{inputs.directory}}
+
+    - name: Typecheck
+      run: yarn test:dts
+      shell: bash
+      working-directory: ${{inputs.directory}}

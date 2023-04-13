@@ -1,0 +1,24 @@
+name: Generate docs and coverage report
+on:
+  push:
+    branches:
+      - main
+jobs:
+  generate-docs-and-coverage-core:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/steps/docs-coverage-report
+        with:
+          directory: core
+      - name: Prepare folder for gh-pages
+        run: |
+          mkdir gh-pages
+          mv core/gh-pages ./gh-pages/core
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@8817a56e5bfec6e2b08345c81f4d422db53a2cdc
+        with:
+          branch: gh-pages
+          folder: gh-pages

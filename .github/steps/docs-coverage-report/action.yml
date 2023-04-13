@@ -1,0 +1,38 @@
+name: Test Build
+description: Lint, Build, Test
+inputs:
+  directory:
+    description: "Working directory"
+    required: true
+    default: "./"
+runs:
+  using: "composite"
+  steps:
+    - name: Install dependencies
+      run: yarn install
+      shell: bash
+      working-directory: ${{inputs.directory}}
+
+    - name: Create the docs
+      run: yarn run docs
+      shell: bash
+      working-directory: ${{inputs.directory}}
+
+    - name: Collect coverage report
+      run: yarn test:coverage
+      shell: bash
+      working-directory: ${{inputs.directory}}
+
+    - name: Create Coverage Badges
+      uses: jaywcjlove/coverage-badges-cli@e07f25709cd25486855c1ba1b26da53576ff3620
+      with:
+        source: ${{inputs.directory}}/coverage/coverage-summary.json
+        output: ${{inputs.directory}}/coverage/lcov-report/badges.svg
+
+    - name: Prepare folder for gh-pages
+      shell: bash
+      working-directory: ${{inputs.directory}}
+      run: |
+        mkdir gh-pages
+        mv docs ./gh-pages
+        mv coverage/lcov-report ./gh-pages/coverage
