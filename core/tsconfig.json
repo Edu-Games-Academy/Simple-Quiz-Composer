@@ -3,7 +3,7 @@
     "outDir": "dist/src",
     "module": "es6",
     "moduleResolution": "node",
-    "target": "es2020",
+    "target": "es2021",
     "resolveJsonModule": true,
     "importHelpers": true,
     "allowSyntheticDefaultImports": true,
@@ -14,10 +14,6 @@
     "noImplicitReturns": true,
     "exactOptionalPropertyTypes": true
   },
-  "files": ["src/index.ts"],
-  "exclude": [
-    "dist",
-    "node_modules",
-    "**/*.test.ts"
-  ]
+  "include": ["src", "__tests__"],
+  "exclude": ["dist", "node_modules", "**/*.test.ts"]
 }
