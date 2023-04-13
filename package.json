@@ -3,7 +3,6 @@
   "homepage": "https://edu-games-academy.github.io/Simple-Quiz-Composer",
   "private": true,
   "version": "0.1.0",
-  "type": "module",
   "scripts": {
     "prepare": "husky install",
     "lint:fix": "yarn --cwd core run lint:fix"

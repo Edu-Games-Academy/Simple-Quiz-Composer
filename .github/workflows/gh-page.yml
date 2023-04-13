@@ -1,4 +1,4 @@
-name: Generate docs and coverage report
+name: Generate web app, docs and coverage report
 on:
   push:
     branches:
@@ -13,9 +13,12 @@ jobs:
       - uses: ./.github/steps/docs-coverage-report
         with:
           directory: core
+      - uses: ./.github/steps/build-app
+        with:
+          directory: app
       - name: Prepare folder for gh-pages
         run: |
-          mkdir gh-pages
+          mv app/dist gh-pages
           mv core/gh-pages ./gh-pages/core
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@8817a56e5bfec6e2b08345c81f4d422db53a2cdc
