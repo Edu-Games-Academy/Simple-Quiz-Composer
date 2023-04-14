@@ -1,4 +1,2 @@
-import { getGreeting } from './greeting'
-export { getGreeting }
-
-console.log(getGreeting('World'))
+export * from './question'
+export * as questionFormats from './question-formats'

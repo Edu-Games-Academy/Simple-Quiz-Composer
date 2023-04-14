@@ -1,7 +1,13 @@
-import { getGreeting } from '../src/greeting'
+import * as base from '../src/index'
 
-describe('Greeting', () => {
-  it('should greet World', () => {
-    expect(getGreeting('World')).toBe('Hello World!')
+describe('Question export', () => {
+  it('should have createChoice', () => {
+    expect(base.createChoice).toBeDefined()
+  })
+  it('should have createQuestion', () => {
+    expect(base.createQuestion).toBeDefined()
+  })
+  it('should have questionFormats', () => {
+    expect(base.questionFormats).toBeDefined()
   })
 })
