@@ -12,7 +12,7 @@ const createGiftQuestion = (index: number, question: Question) => {
 
   return `
 // question ${index}
-[html]${text} {
+[html]${text}{
 ${answers(question.choices)}
 }
 `
