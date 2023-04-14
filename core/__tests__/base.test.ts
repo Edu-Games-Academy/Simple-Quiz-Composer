@@ -7,4 +7,7 @@ describe('Question export', () => {
   it('should have createQuestion', () => {
     expect(base.createQuestion).toBeDefined()
   })
+  it('should have questionFormats', () => {
+    expect(base.questionFormats).toBeDefined()
+  })
 })
