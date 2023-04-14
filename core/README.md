@@ -2,6 +2,7 @@
 
 [![Generate web app, docs and coverage report](https://github.com/Edu-Games-Academy/Simple-Quiz-Composer/actions/workflows/gh-page.yml/badge.svg)](https://github.com/Edu-Games-Academy/Simple-Quiz-Composer/actions/workflows/gh-page.yml)
 [![Release](https://github.com/Edu-Games-Academy/Simple-Quiz-Composer/actions/workflows/release.yml/badge.svg)](https://github.com/Edu-Games-Academy/Simple-Quiz-Composer/actions/workflows/release.yml)
+[![Coverage](https://edu-games-academy.github.io/Simple-Quiz-Composer/core/coverage/badges.svg)](https://github.com/Edu-Games-Academy/Simple-Quiz-Composer/actions/workflows/gh-page.yml)
 [![MIT license](https://img.shields.io/:license-mit-blue.svg)](https://opensource.org/licenses/MIT)
 [![Documentation](https://img.shields.io/badge/-Documentation-green)](https://edu-games-academy.github.io/Simple-Quiz-Composer/core/docs/)
 
