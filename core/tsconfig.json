@@ -15,5 +15,5 @@
     "exactOptionalPropertyTypes": true
   },
   "include": ["src", "__tests__"],
-  "exclude": ["dist", "node_modules", "**/*.test.ts"]
+  "exclude": ["dist", "node_modules"]
 }
