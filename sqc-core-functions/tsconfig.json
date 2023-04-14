@@ -3,7 +3,7 @@
     "outDir": "dist/src",
     "module": "es6",
     "moduleResolution": "node",
-    "target": "es2020",
+    "target": "es2021",
     "resolveJsonModule": true,
     "importHelpers": true,
     "allowSyntheticDefaultImports": true,
