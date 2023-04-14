@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - main
+    paths:
+      - core/**
+      - app/**
 jobs:
   generate-docs-and-coverage-core:
     runs-on: ubuntu-latest

@@ -1,0 +1,42 @@
+name: Pull requests Check
+on:
+  pull_request:
+jobs:
+  build-test:
+    name: Lint, build and test
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dorny/paths-filter@v2
+        id: changes
+        with:
+          filters: |
+            core:
+              - 'core/**'
+
+      - if: steps.changes.outputs.core == 'true'
+        uses: ./.github/steps/build
+        with:
+          directory: core
+
+  test-coverage:
+    name: Run tests & check coverage
+    runs-on: ubuntu-latest
+    permissions:
+      checks: write
+      pull-requests: write
+      contents: read # for private repos
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dorny/paths-filter@v2
+        id: changes
+        with:
+          filters: |
+            core:
+              - 'core/**'
+
+      - if: steps.changes.outputs.core == 'true'
+        uses: ./.github/steps/test-coverage
+        with:
+          directory: core
