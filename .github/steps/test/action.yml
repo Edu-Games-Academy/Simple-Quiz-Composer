@@ -8,19 +8,9 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Cache
-      uses: actions/cache@v3
+    - uses: ./.github/steps/install
       with:
-        path: |
-          ${{inputs.directory}}/**/node_modules
-          !**/dist/node_modules
-        key: nodemodules-${{ hashFiles('**/yarn.lock') }}
-        restore-keys: nodemodules-
-
-    - name: Install Node packages
-      run: yarn install
-      shell: bash
-      working-directory: ${{inputs.directory}}
+        directory: ${{inputs.directory}}
 
     - name: Lint
       run: yarn lint

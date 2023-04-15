@@ -2,7 +2,7 @@ name: Pull requests Check
 on:
   pull_request:
 jobs:
-  test:
+  lint-test:
     name: Lint, build and test
     runs-on: ubuntu-latest
     timeout-minutes: 3

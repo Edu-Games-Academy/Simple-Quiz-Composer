@@ -8,13 +8,9 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Jest coverage comment
-      id: coverage
-      uses: ArtiomTr/jest-coverage-report-action@df2b025553c31d68f84be6337843e277e2576844
+    - uses: ./.github/steps/install
       with:
-        package-manager: yarn
-        output: report-markdown
-        working-directory: ${{inputs.directory}}
+        directory: ${{inputs.directory}}
 
     - run: yarn test:coverage
       shell: bash
@@ -27,12 +23,12 @@ runs:
         textReportPath: ${{inputs.directory}}/coverage/coverage.txt
         srcBasePath: ${{inputs.directory}}/src
 
-    - uses: marocchino/sticky-pull-request-comment@adca94abcaf73c10466a71cc83ae561fd66d1a56
+    - uses: marocchino/sticky-pull-request-comment@v2
       with:
+        header: ${{inputs.directory}}
         message: |
-          ${{ steps.coverage.outputs.report }}
           <details>
-            <summary>Show full coverage report</summary>
+            <summary>Show coverage report for ${{inputs.directory}}</summary>
 
             ${{ steps.coverage-md.outputs.markdownReport }}
           </details>

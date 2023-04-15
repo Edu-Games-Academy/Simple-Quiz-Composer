@@ -14,10 +14,9 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Install dependencies
-      run: yarn install
-      shell: bash
-      working-directory: ${{inputs.directory}}
+    - uses: ./.github/steps/install
+      with:
+        directory: ${{inputs.directory}}
 
     - name: Build library
       run: yarn build
