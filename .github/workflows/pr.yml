@@ -14,11 +14,17 @@ jobs:
           filters: |
             core:
               - 'sqc-core-functions/**'
+            ui:
+              - 'sqc-ui-components/**'
 
       - if: steps.changes.outputs.core == 'true'
         uses: ./.github/steps/test
         with:
           directory: sqc-core-functions
+      - if: steps.changes.outputs.ui == 'true'
+        uses: ./.github/steps/test
+        with:
+          directory: sqc-ui-components
 
   test-coverage:
     name: Run tests & check coverage
@@ -35,8 +41,14 @@ jobs:
           filters: |
             core:
               - 'sqc-core-functions/**'
+            ui:
+              - 'sqc-ui-components/**'
 
       - if: steps.changes.outputs.core == 'true'
         uses: ./.github/steps/test-coverage
         with:
           directory: sqc-core-functions
+      - if: steps.changes.outputs.ui == 'true'
+        uses: ./.github/steps/test-coverage
+        with:
+          directory: sqc-ui-components

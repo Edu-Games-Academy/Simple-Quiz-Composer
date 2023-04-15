@@ -5,6 +5,7 @@ on:
       - main
     paths:
       - sqc-core-functions/**
+      - sqc-ui-components/**
       - app/**
 jobs:
   generate-app-docs-coverage:
@@ -16,6 +17,9 @@ jobs:
       - uses: ./.github/steps/docs
         with:
           directory: sqc-core-functions
+      - uses: ./.github/steps/docs
+        with:
+          directory: sqc-ui-components
       - uses: ./.github/steps/build-app
         with:
           directory: app
@@ -23,6 +27,7 @@ jobs:
         run: |
           mv app/dist gh-pages
           mv sqc-core-functions/gh-pages ./gh-pages/sqc-core-functions
+          mv sqc-ui-components/gh-pages ./gh-pages/sqc-ui-components
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:

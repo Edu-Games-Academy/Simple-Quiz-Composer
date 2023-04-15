@@ -1,2 +1,0 @@
-Simple Quiz Composer Core Functions v<%= pkg.version %> - Copyright (c) Edu Games Academy, <%= new Date().getFullYear() %> (https://github.com/Edu-Games-Academy)
-Licensed under the MIT (http://www.opensource.org/licenses/mit-license.php) license.

@@ -6,7 +6,7 @@
       "prerelease": true
     }
   ],
-  "tagFormat": "sqc-core-functions-v${version}",
+  "tagFormat": "sqc-ui-components-v${version}",
   "plugins": [
     [
       "@semantic-release/commit-analyzer",
@@ -18,12 +18,12 @@
             "release": "patch"
           },
           {
-            "type": "docs", 
+            "type": "docs",
             "scope": "README",
             "release": "patch"
           },
           {
-            "scope": "!core",
+            "scope": "!ui",
             "release": false
           }
         ]

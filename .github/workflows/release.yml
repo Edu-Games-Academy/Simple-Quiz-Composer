@@ -16,3 +16,8 @@ jobs:
           directory: sqc-core-functions
           release-token: ${{ secrets.GH_RELEASE_TOKEN }}
           npm-token: ${{ secrets.NPM_AUTH_TOKEN }}
+      - uses: ./.github/steps/release
+        with:
+          directory: sqc-ui-components
+          release-token: ${{ secrets.GH_RELEASE_TOKEN }}
+          npm-token: ${{ secrets.NPM_AUTH_TOKEN }}

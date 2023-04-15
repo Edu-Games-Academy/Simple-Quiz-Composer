@@ -1,7 +1,7 @@
 {
-  "name": "sqc-core-functions",
+  "name": "sqc-ui-components",
   "version": "0.1.0",
-  "description": "Core functions for Simple Quiz Composer",
+  "description": "UI Components for Simple Quiz Composer",
   "author": "Hieu Nguyen (isaactesla@gmail.com)",
   "license": "MIT",
   "repository": {

@@ -13,3 +13,4 @@ A visual editor that generate/modify quiz in JSON format
 ## Documents
 
 - [Core Functions](/sqc-core-functions/README.md)
+- [UI components](/sqc-ui-components/README.md)

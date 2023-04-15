@@ -7,7 +7,8 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "sqc-core-functions/**/*.ts": "yarn --cwd sqc-core-functions run lint:fix"
+    "sqc-core-functions/**/*.ts": "yarn --cwd sqc-core-functions run lint:fix",
+    "sqc-ui-components/**/*.ts": "yarn --cwd sqc-ui-components run lint:fix"
   },
   "config": {
     "commitizen": {
