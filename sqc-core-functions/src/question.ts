@@ -1,4 +1,4 @@
-const uid = () => String(Math.random())
+const uid = () => String(Math.random()).substring(2)
 
 export type Choice = {
   id: string
