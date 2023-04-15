@@ -1,5 +1,7 @@
-import format from '../../src/question-formats/qal'
+import { questionFormats } from '../../src'
 import { inputQuestions, expectedQuestions } from './common'
+
+const format = questionFormats.qal
 
 const plainText = `// question 1
 What is the capital of France ~=#{}:\\?
