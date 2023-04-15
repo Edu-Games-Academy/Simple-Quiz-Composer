@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/Edu-Games-Academy/Simple-Quiz-Composer/compare/sqc-core-functions-v1.0.0...sqc-core-functions-v1.0.1) (2023-04-15)
+
+
+### Bug Fixes
+
+* **core:** fix export default ([#24](https://github.com/Edu-Games-Academy/Simple-Quiz-Composer/issues/24)) ([fad1a13](https://github.com/Edu-Games-Academy/Simple-Quiz-Composer/commit/fad1a134341e836bfe3daaa09e4cfa7023a394b2))
+
 ## 1.0.0 (2023-04-15)
 
 
