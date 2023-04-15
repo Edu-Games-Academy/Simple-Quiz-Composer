@@ -18,7 +18,10 @@ ${answers(question.choices)}
 `
 }
 
-const format: QuestionFormat = {
+/**
+ * Moodle GIFT format
+ */
+export const gift: QuestionFormat = {
   fileType: 'text/plain',
   fileExtension: 'txt',
   import: (text: string): Question[] => {
@@ -39,8 +42,3 @@ const format: QuestionFormat = {
     return questions.map((q, i) => createGiftQuestion(i + 1, q)).join('')
   },
 }
-
-/**
- * Moodle GIFT format
- */
-export default format

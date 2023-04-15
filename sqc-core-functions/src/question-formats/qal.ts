@@ -23,7 +23,10 @@ const formatQuestion = (question: Question, idx: number) => {
   return `// question ${idx + 1}\n${question.question}\n${answers.join('\n')}`
 }
 
-const format: QuestionFormat = {
+/**
+ * QuestionAnswerLine format
+ */
+export const qal: QuestionFormat = {
   fileType: 'text/plain',
   fileExtension: 'txt',
   import: (text: string): Question[] => {
@@ -33,8 +36,3 @@ const format: QuestionFormat = {
     return questions.map(formatQuestion).join('\n\n')
   },
 }
-
-/**
- * QuestionAnswerLine format
- */
-export default format
