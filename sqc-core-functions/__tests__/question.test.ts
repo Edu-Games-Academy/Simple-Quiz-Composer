@@ -1,4 +1,4 @@
-import { createChoice, createQuestion } from '../src/question'
+import { createChoice, createQuestion } from '../src'
 
 describe('Create Choice', () => {
   it('should create a choice without param', () => {

@@ -1,5 +1,7 @@
-import format from '../../src/question-formats/gift'
+import { questionFormats } from '../../src'
 import { inputQuestions, expectedQuestions } from './common'
+
+const format = questionFormats.gift
 
 const plainText = `
 // question 1

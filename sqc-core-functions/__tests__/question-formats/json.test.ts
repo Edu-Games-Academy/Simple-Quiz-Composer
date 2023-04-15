@@ -1,5 +1,7 @@
-import format from '../../src/question-formats/json'
+import { questionFormats } from '../../src'
 import { inputQuestions, expectedQuestions } from './common'
+
+const format = questionFormats.json
 
 const plainText = `[
   {
