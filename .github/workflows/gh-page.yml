@@ -1,4 +1,4 @@
-name: Generate web app, docs and coverage report
+name: Generate docs
 on:
   push:
     branches:
@@ -13,7 +13,7 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v3
-      - uses: ./.github/steps/docs-coverage-report
+      - uses: ./.github/steps/docs
         with:
           directory: sqc-core-functions
       - uses: ./.github/steps/build-app

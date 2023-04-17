@@ -1,5 +1,5 @@
-name: Create docs and coverage report
-description: Create docs and coverage report to publish to GH page
+name: Create docs for GH page
+description: Generate docs and coverage report
 inputs:
   directory:
     description: "Working directory"
