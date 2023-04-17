@@ -52,6 +52,7 @@
     "semantic-release": "19.0.3",
     "ts-jest": "^28.0.5",
     "typedoc": "^0.22.17",
+    "typedoc-plugin-zod": "^1.0.2",
     "typescript": "^4.7.4"
   }
 }
