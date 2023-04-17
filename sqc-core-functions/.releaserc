@@ -21,6 +21,10 @@
             "type": "docs",
             "scope": "README",
             "release": "patch"
+          },
+          {
+            "scope": "!core",
+            "release": false
           }
         ]
       }
