@@ -1,3 +1,15 @@
+## [1.1.0](https://github.com/Edu-Games-Academy/Simple-Quiz-Composer/compare/sqc-core-functions-v1.0.2...sqc-core-functions-v1.1.0) (2023-04-17)
+
+
+### Features
+
+* **core:** use zod for json validation ([5b9a09a](https://github.com/Edu-Games-Academy/Simple-Quiz-Composer/commit/5b9a09a41aafe9fe6fea13502b18960c483bdc4c))
+
+
+### Bug Fixes
+
+* **core:** trim GIFT results ([21c56c3](https://github.com/Edu-Games-Academy/Simple-Quiz-Composer/commit/21c56c397e319233573d02dfca6aebea893f39c0))
+
 ## [1.0.2](https://github.com/Edu-Games-Academy/Simple-Quiz-Composer/compare/sqc-core-functions-v1.0.1...sqc-core-functions-v1.0.2) (2023-04-17)
 
 
