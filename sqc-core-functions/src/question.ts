@@ -1,16 +1,28 @@
-const uid = () => String(Math.random())
+import { z } from 'zod'
 
-export type Choice = {
-  id: string
-  answer: string
-  isCorrect: boolean
-}
+const uid = () => String(Math.random()).substring(2)
 
-export type Question = {
-  id: string
-  question: string
-  choices: Choice[]
-}
+/**
+ * Zod validation schema for {@link Choice}
+ */
+export const ChoiceSchema = z.strictObject({
+  id: z.string().optional(),
+  answer: z.string(),
+  isCorrect: z.boolean(),
+})
+
+export type Choice = z.infer<typeof ChoiceSchema>
+
+/**
+ * Zod validation schema for {@link Question}
+ */
+export const QuestionSchema = z.strictObject({
+  id: z.string().optional(),
+  question: z.string(),
+  choices: z.array(ChoiceSchema),
+})
+
+export type Question = z.infer<typeof QuestionSchema>
 
 type CreateChoiceParams = Partial<Choice>
 type CreateQuestionParams = Partial<Omit<Question, 'choices'> & { choices: CreateChoiceParams[] }>
