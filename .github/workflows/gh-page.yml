@@ -27,6 +27,7 @@ jobs:
       - name: Prepare folder for gh-pages
         run: |
           mv app/dist gh-pages
+          touch ./gh-pages/.nojekyll
           mv sqc-core-functions/gh-pages ./gh-pages/sqc-core-functions
           mv sqc-ui-components/gh-pages ./gh-pages/sqc-ui-components
       - name: Deploy 🚀
