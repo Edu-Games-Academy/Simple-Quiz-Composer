@@ -21,3 +21,4 @@ npm i sqc-ui-components
 
 - [Docs](https://edu-games-academy.github.io/Simple-Quiz-Composer/sqc-ui-components/docs/)
 - [Module API](https://edu-games-academy.github.io/Simple-Quiz-Composer/sqc-ui-components/docs/modules.html)
+- [Storybook](https://edu-games-academy.github.io/Simple-Quiz-Composer/sqc-ui-components/storybook/)

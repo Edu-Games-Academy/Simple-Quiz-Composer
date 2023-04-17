@@ -1,21 +1,28 @@
 {
   "compilerOptions": {
-    "jsx": "react",
-    "esModuleInterop": true,
-    "outDir": "dist/src",
-    "module": "es6",
-    "moduleResolution": "node",
-    "target": "es2020",
-    "resolveJsonModule": true,
-    "importHelpers": true,
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": false,
     "allowSyntheticDefaultImports": true,
-    "noErrorTruncation": true,
     "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "exactOptionalPropertyTypes": true
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "declaration": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "declarationMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "react-component-library": ["src/index.ts"],
+    },
+    "typeRoots": ["node_modules/@types", "src/index.d.ts"]
   },
-  "include": ["src", "__tests__"],
-  "exclude": ["dist", "node_modules"]
+  "include": ["src"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -1,10 +1,13 @@
 name: Create docs for GH page
-description: Generate docs and coverage report
+description: Generate docs, coverage report, storybook
 inputs:
   directory:
     description: "Working directory"
     required: true
     default: "./"
+  storybook:
+    description: "Whether running storybook build or not"
+    default: "false"
 runs:
   using: "composite"
   steps:
@@ -35,3 +38,11 @@ runs:
         mkdir gh-pages
         mv docs ./gh-pages
         mv coverage/lcov-report ./gh-pages/coverage
+
+    - name: Build storybook
+      shell: bash
+      if: inputs.storybook == 'true'
+      working-directory: ${{inputs.directory}}
+      run: |
+        yarn run build-storybook
+        mv storybook-static ./gh-pages/storybook

@@ -1,5 +1,6 @@
 # Project artifacts
 /dist/
+/build/
 /node_modules/
 
 # Coverage report
@@ -12,3 +13,5 @@ coverage.txt
 .vscode/
 yarn-error.log
 docs
+storybook-static
+*.local

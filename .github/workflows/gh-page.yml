@@ -20,6 +20,7 @@ jobs:
       - uses: ./.github/steps/docs
         with:
           directory: sqc-ui-components
+          storybook: true
       - uses: ./.github/steps/build-app
         with:
           directory: app
