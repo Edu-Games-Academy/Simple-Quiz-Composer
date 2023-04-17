@@ -68,4 +68,41 @@ describe('JSON Format', () => {
     const result = format.export(inputQuestions)
     expect(result).toEqual(plainText)
   })
+
+  it('should handle incorrect JSON values', () => {
+    const inputs = [
+      JSON.stringify([
+        {
+          a: '1',
+          b: 2,
+        },
+      ]),
+      JSON.stringify([
+        {
+          question: '1',
+          answer: '2',
+        },
+      ]),
+      JSON.stringify([
+        {
+          question: '1',
+          choices: [{ answer: '*3', isCorrect: false }],
+          redundant: true,
+        },
+      ]),
+    ]
+    inputs.forEach((input) => {
+      expect(() => format.import(input)).toThrowError()
+    })
+  })
+
+  it('should handle correct JSON values without IDs', () => {
+    const questions = [
+      {
+        question: '1',
+        choices: [{ answer: '*3', isCorrect: false }],
+      },
+    ]
+    expect(format.import(JSON.stringify(questions))).toMatchObject(questions)
+  })
 })

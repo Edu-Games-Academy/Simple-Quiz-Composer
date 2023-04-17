@@ -26,7 +26,8 @@
     "dist"
   ],
   "dependencies": {
-    "gift-pegjs": "^0.2.1"
+    "gift-pegjs": "^0.2.1",
+    "zod": "^3.21.4"
   },
   "devDependencies": {
     "@rollup/plugin-json": "^4.1.0",
