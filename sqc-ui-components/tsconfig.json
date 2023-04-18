@@ -19,10 +19,10 @@
     "declarationMap": true,
     "baseUrl": ".",
     "paths": {
-      "react-component-library": ["src/index.ts"],
+      "react-component-library": ["src/index.ts"]
     },
     "typeRoots": ["node_modules/@types", "src/index.d.ts"]
   },
-  "include": ["src"],
+  "include": ["src", "__tests__"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

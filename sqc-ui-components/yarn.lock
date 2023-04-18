@@ -5621,6 +5621,13 @@ get-stream@^6.0.0:
   resolved "https://registry.yarnpkg.com/get-stream/-/get-stream-6.0.1.tgz#a262d8eef67aced57c2852ad6167526a43cbf7b7"
   integrity sha512-ts6Wi+2j3jQjqi70w5AlN8DFnkSwC+MqmxEzdEALB2qXZYV3X/b1CTfgPLGJNMeAWxdPfU8FO1ms3NUfaHCPYg==
 
+gift-pegjs@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/gift-pegjs/-/gift-pegjs-0.2.1.tgz#7f9e38113cc5a61b50f3664a8272baeba0fe11e7"
+  integrity sha512-yNK6GFuV2jbscIktKFryDeEwoQ0XJDAK3haywbssSrownLFlafr+SCQ1yReUeOAVNJ94cUt3QMR4GqUjovaiuQ==
+  dependencies:
+    pegjs "^0.10.x"
+
 giget@^1.0.0:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/giget/-/giget-1.1.2.tgz#f99a49cb0ff85479c8c3612cdc7ca27f2066e818"
@@ -5969,6 +5976,11 @@ ignore@^5.2.0:
   version "5.2.4"
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-5.2.4.tgz#a291c0c6178ff1b960befe47fcdec301674a6324"
   integrity sha512-MAb38BcSbH0eHNBxn7ql2NH/kX33OkB3lZ1BNdh7ENeRChHTYsTvWrMubiIAMNS2llXEEgZ1MUOBtXChP3kaFQ==
+
+immutability-helper@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/immutability-helper/-/immutability-helper-3.1.1.tgz#2b86b2286ed3b1241c9e23b7b21e0444f52f77b7"
+  integrity sha512-Q0QaXjPjwIju/28TsugCHNEASwoCcJSyJV3uO1sOIQGI0jKgm9f41Lvz0DZj3n46cNCyAZTsEYoY4C2bVRUzyQ==
 
 import-fresh@^3.0.0, import-fresh@^3.2.1:
   version "3.3.0"
@@ -8440,6 +8452,11 @@ peek-stream@^1.1.0:
     duplexify "^3.5.0"
     through2 "^2.0.3"
 
+pegjs@^0.10.x:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/pegjs/-/pegjs-0.10.0.tgz#cf8bafae6eddff4b5a7efb185269eaaf4610ddbd"
+  integrity sha512-qI5+oFNEGi3L5HAxDwN2LA4Gg7irF70Zs25edhjld9QemOgp0CbvMtbFcMvFtEo1OityPrcCzkQFB8JP/hxgow==
+
 pend@~1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/pend/-/pend-1.2.0.tgz#7a57eb550a6783f9115331fcf4663d5c8e007a50"
@@ -9597,6 +9614,14 @@ sprintf-js@~1.0.2:
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
   integrity sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g==
 
+sqc-core-functions@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/sqc-core-functions/-/sqc-core-functions-1.1.1.tgz#7661b3d831a168776a183e60d0e15ec41160aaa1"
+  integrity sha512-6qfrQSJNlPXhxhwH+TehPetjbTpK2PQR9Tn5/6u8FB2zLKLWuexwCfstU2212q0baq6W56yBU7kqpXHKb+l+/A==
+  dependencies:
+    gift-pegjs "^0.2.1"
+    zod "^3.21.4"
+
 ssri@^9.0.0, ssri@^9.0.1:
   version "9.0.1"
   resolved "https://registry.yarnpkg.com/ssri/-/ssri-9.0.1.tgz#544d4c357a8d7b71a19700074b6883fcb4eae057"
@@ -10704,3 +10729,8 @@ z-schema@~5.0.2:
     validator "^13.7.0"
   optionalDependencies:
     commander "^10.0.0"
+
+zod@^3.21.4:
+  version "3.21.4"
+  resolved "https://registry.yarnpkg.com/zod/-/zod-3.21.4.tgz#10882231d992519f0a10b5dd58a38c9dabbb64db"
+  integrity sha512-m46AKbrzKVzOzs/DZgVnG5H55N1sv1M8qZU3A8RIKbs3mrACDNeIOeilDymVb2HdmP8uwshOCF4uJ8uM9rCqJw==
