@@ -6,4 +6,7 @@ module.exports = {
   watchPathIgnorePatterns: ['.*\\.stories\\.ts$'],
   collectCoverageFrom: ['./src/**/**.{ts,tsx}', '!./src/**/**.stories.ts'],
   coverageReporters: ['lcov', 'json-summary', ['text', { file: 'coverage.txt', path: './' }]],
+  moduleNameMapper: {
+    '\\.(svg)$': '<rootDir>/__mocks__/svg.js',
+  },
 }
