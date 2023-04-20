@@ -1,3 +1,24 @@
+/**
+ * Check if 2 objects/values are deeply equal. Doesn't work with circular references.
+ *
+ * @example ```ts
+ * const value1 = 10;
+ * const value2 = 10;
+ * console.log(deepEqual(value1, value2)); // Output: true
+ *
+ * const obj1 = {a: 1, b: 2};
+ * const obj2 = {a: 1, b: 2};
+ * console.log(deepEqual(obj1, obj2)); // Output: true
+ *
+ * const obj1 = {a: 1, b: 2};
+ * const obj2 = {a: 1, b: 3};
+ * console.log(deepEqual(obj1, obj2)); // Output: false
+ *
+ * const obj1 = {a: 1, b: 2};
+ * const obj2 = {a: 1, c: 2};
+ * console.log(deepEqual(obj1, obj2)); // Output: false
+ * ```
+ */
 export const deepEqual = (obj1: any, obj2: any) => {
   if (obj1 === obj2) {
     // The objects are the same object
