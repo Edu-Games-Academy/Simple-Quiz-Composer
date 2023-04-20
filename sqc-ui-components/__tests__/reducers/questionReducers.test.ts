@@ -1,9 +1,8 @@
 import { renderHook, act } from '@testing-library/react'
-import { reducers } from '../../src'
+import { questionReducer } from '../../src'
 
 describe('useQuestionReducer', () => {
-  const { questionReducer } = reducers
-  const { initialQuestions, Actions, useQuestionReducer } = questionReducer
+  const { initialQuestions, QuestionsActions, useQuestionReducer } = questionReducer
 
   test('initial state is set correctly', () => {
     const { result } = renderHook(() => useQuestionReducer())
@@ -15,7 +14,7 @@ describe('useQuestionReducer', () => {
     const { questionsDispatch } = result.current
 
     act(() => {
-      questionsDispatch({ type: Actions.ADD })
+      questionsDispatch({ type: QuestionsActions.ADD })
     })
 
     expect(result.current.questions).toHaveLength(2)
@@ -26,7 +25,7 @@ describe('useQuestionReducer', () => {
     const { questionsDispatch } = result.current
 
     act(() => {
-      questionsDispatch({ type: Actions.REMOVE, index: 0 })
+      questionsDispatch({ type: QuestionsActions.REMOVE, index: 0 })
     })
 
     expect(result.current.questions).toHaveLength(0)
@@ -38,7 +37,7 @@ describe('useQuestionReducer', () => {
 
     act(() => {
       questionsDispatch({
-        type: Actions.UPDATE,
+        type: QuestionsActions.UPDATE,
         index: 0,
         question: {
           id: '1',
@@ -63,7 +62,7 @@ describe('useQuestionReducer', () => {
     ]
 
     act(() => {
-      questionsDispatch({ type: Actions.REPLACE, questions: newQuestions })
+      questionsDispatch({ type: QuestionsActions.REPLACE, questions: newQuestions })
     })
 
     expect(result.current.questions).toEqual(newQuestions)

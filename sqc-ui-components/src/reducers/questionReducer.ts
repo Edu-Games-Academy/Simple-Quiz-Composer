@@ -3,7 +3,7 @@ import { useReducer } from 'react'
 
 import { createQuestion, Question } from 'sqc-core-functions'
 
-export enum Actions {
+export enum QuestionsActions {
   ADD = 'add',
   REMOVE = 'remove',
   UPDATE = 'update',
@@ -12,33 +12,33 @@ export enum Actions {
 
 export const initialQuestions = [createQuestion()]
 
-export type DispatchAction =
+export type QuestionDispatchAction =
   | {
-      type: Actions.ADD
+      type: QuestionsActions.ADD
     }
   | {
-      type: Actions.REMOVE
+      type: QuestionsActions.REMOVE
       index: number
     }
   | {
-      type: Actions.UPDATE
+      type: QuestionsActions.UPDATE
       index: number
       question: Question
     }
   | {
-      type: Actions.REPLACE
+      type: QuestionsActions.REPLACE
       questions: Question[]
     }
 
-const questionsReducer = (state: Question[], action: DispatchAction) => {
+const questionsReducer = (state: Question[], action: QuestionDispatchAction) => {
   switch (action.type) {
-    case Actions.ADD:
+    case QuestionsActions.ADD:
       return update(state, { $push: [createQuestion()] })
-    case Actions.REMOVE:
+    case QuestionsActions.REMOVE:
       return update(state, { $splice: [[action.index, 1]] })
-    case Actions.UPDATE:
+    case QuestionsActions.UPDATE:
       return update(state, { [action.index]: { $set: action.question } })
-    case Actions.REPLACE:
+    case QuestionsActions.REPLACE:
       return update(state, { $set: action.questions })
   }
 }
