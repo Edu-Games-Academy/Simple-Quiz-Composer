@@ -23,7 +23,7 @@ module.exports = {
     },
   },
   plugins: ['@typescript-eslint', 'prettier'],
-  ignorePatterns: ['build/*'],
+  ignorePatterns: ['build/*', 'dist/*'],
   rules: {
     semi: ['error', 'never'],
     'linebreak-style': ['error', 'unix'],
