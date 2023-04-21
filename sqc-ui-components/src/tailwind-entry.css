@@ -1,3 +1,26 @@
+@import 'highlight.js/styles/monokai-sublime.css';
+@import 'katex/dist/katex.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+pre.ql-syntax {
+  cursor: text;
+
+  box-sizing: border-box;
+
+  counter-reset: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+  margin: 0;
+
+  border-radius: 3px;
+
+  white-space: pre-wrap;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  padding: 5px 10px;
+
+  background-color: #23241f;
+  color: #f8f8f2;
+  overflow: visible;
+}

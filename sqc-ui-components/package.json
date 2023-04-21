@@ -86,7 +86,9 @@
     "react-dom": "^18.2.0"
   },
   "dependencies": {
+    "highlight.js": "^11.7.0",
     "immutability-helper": "^3.1.1",
+    "katex": "^0.16.6",
     "sqc-core-functions": "^1.1.1"
   }
 }
