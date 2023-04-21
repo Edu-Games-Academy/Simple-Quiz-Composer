@@ -2,20 +2,24 @@ import { ReactNode, createContext, useContext, useState } from 'react'
 
 import { Toast, ToastParams } from './Toast'
 
-type ToastProps = {
+export type ToastContextProps = {
   toast: (message: string) => void
   toastSuccess: (message: string) => void
   toastError: (message: string) => void
 }
 
-const ToastContext = createContext<ToastProps>({} as ToastProps)
+const ToastContext = createContext<ToastContextProps>({} as ToastContextProps)
 
+/**
+ * Hook to access toast context
+ */
 const useToastContext = () => useContext(ToastContext)
 
-type Props = {
-  children: ReactNode
-}
-function ToastProvider({ children }: Props) {
+/**
+ * Provider element to wrap other elements to access toast context
+ * @see {@link useToastContext}
+ */
+function ToastProvider({ children }: { children: ReactNode }) {
   const [showToast, setShowToast] = useState(false)
   const [type, setType] = useState<ToastParams['type']>('default')
   const [text, setText] = useState('')
