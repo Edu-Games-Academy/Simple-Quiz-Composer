@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from 'react';
+import {
+  Preview,
+  QuizEditor,
+  deepEqual,
+  questionReducer,
+  useQuestionsContext,
+} from 'sqc-ui-components';
 
-import { ReactComponent as DeleteForeverIcon } from '@/assets/svg/delete_forever.svg';
-import { ReactComponent as ResetIcon } from '@/assets/svg/restart.svg';
-import { ReactComponent as SaveIcon } from '@/assets/svg/save.svg';
-import Preview from '@/components/Preview/Preview';
-import RichtextQuestion from '@/components/RichtextQuestion';
-import TabContainer from '@/components/TabContainer';
-import { useQuestionsContext } from '@/contexts/QuestionsContext';
-import { deepEqual } from '@/methods/object';
-import { Actions } from '@/reducers/questionReducer';
+import { ReactComponent as DeleteForeverIcon } from '../../assets/svg/delete_forever.svg';
+import { ReactComponent as ResetIcon } from '../../assets/svg/restart.svg';
+import { ReactComponent as SaveIcon } from '../../assets/svg/save.svg';
+import TabContainer from '../TabContainer';
+
+const { QuestionsActions } = questionReducer;
 
 function Container() {
   const {
@@ -28,7 +32,10 @@ function Container() {
   const isNonRemovable = questions.length < 2;
 
   const removeQuestion = () => {
-    questionsDispatch({ type: Actions.REMOVE, index: selectedQuestion });
+    questionsDispatch({
+      type: QuestionsActions.REMOVE,
+      index: selectedQuestion,
+    });
     if (selectedQuestion === questions.length - 1) {
       setSelectedQuestion(selectedQuestion - 1);
     } else {
@@ -42,7 +49,7 @@ function Container() {
 
   const updateQuestion = () => {
     questionsDispatch({
-      type: Actions.UPDATE,
+      type: QuestionsActions.UPDATE,
       index: selectedQuestion,
       question,
     });
@@ -130,7 +137,7 @@ function Container() {
               Use Rich-text Editor
             </span>
           </label>
-          <RichtextQuestion
+          <QuizEditor
             question={question}
             onChange={setQuestion}
             warning={warning}
