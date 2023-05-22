@@ -1,0 +1,1 @@
+{"version":3,"file":"close-c4b2fa08.js","sources":["../../src/assets/svg/close.svg"],"sourcesContent":["export default \"__VITE_ASSET__aaabd9ba__\""],"names":["SvgClose","props","React.createElement"],"mappings":"wCACK,MAACA,EAAYC,GAA0BC,EAAAA,cAAoB,MAAO,CAAE,MAAO,6BAA8B,QAAS,eAAgB,GAAGD,CAAK,EAAoBC,EAAmB,cAAC,OAAQ,CAAE,EAAG,oGAAqG,CAAC"}
