@@ -1,29 +1,31 @@
 import React from 'react';
+import { questionFormats } from 'sqc-core-functions';
+import {
+  downloadAsFile,
+  formatDateStamp,
+  questionReducer,
+  useQuestionsContext,
+  useToastContext,
+} from 'sqc-ui-components';
 
-import { ReactComponent as ChevronLeftIcon } from '@/assets/svg/chevron_left.svg';
-import { ReactComponent as DownloadIcon } from '@/assets/svg/download.svg';
-import { ReactComponent as MenuIcon } from '@/assets/svg/menu.svg';
-import { ReactComponent as SettingsIcon } from '@/assets/svg/settings.svg';
-import { ReactComponent as UploadIcon } from '@/assets/svg/upload.svg';
-import { useQuestionsContext } from '@/contexts/QuestionsContext';
-import { useToastContext } from '@/contexts/ToastContext';
-import { formatDateStamp } from '@/methods/datetime';
-import { downloadAsFile } from '@/methods/downloadAsFile';
-import gift from '@/methods/question-formats/gift';
-import json from '@/methods/question-formats/json';
-import qal from '@/methods/question-formats/qal';
-import { Actions } from '@/reducers/questionReducer';
-
+import { ReactComponent as ChevronLeftIcon } from '../../assets/svg/chevron_left.svg';
+import { ReactComponent as DownloadIcon } from '../../assets/svg/download.svg';
+import { ReactComponent as MenuIcon } from '../../assets/svg/menu.svg';
+import { ReactComponent as SettingsIcon } from '../../assets/svg/settings.svg';
+import { ReactComponent as UploadIcon } from '../../assets/svg/upload.svg';
 import NavItemButtonOptions from './NavItemButtonOptions';
 import NavItemButtonOptionsUpload from './NavItemButtonOptionsUpload';
+
+const { QuestionsActions } = questionReducer;
 
 const version = 'Version ' + import.meta.env.VITE_APP_VERSION;
 
 const modules = {
-  json,
-  gift,
-  qal,
+  json: questionFormats.json,
+  gift: questionFormats.gift,
+  qal: questionFormats.qal,
 };
+
 const options = {
   json: 'JSON',
   gift: 'Moodle GIFT',
@@ -38,7 +40,7 @@ function NavBar() {
   const loadQuestions = (questions) => {
     console.log('🚀 ~ file: loadQuestions ~ questions:', questions);
     questionsDispatch({
-      type: Actions.REPLACE,
+      type: QuestionsActions.REPLACE,
       questions,
     });
     setSelectedQuestion(0);
@@ -48,7 +50,7 @@ function NavBar() {
     const module = modules[type];
     console.log('🚀 ~ importFile ~ data:', data);
     try {
-      loadQuestions(module.importFrom(data));
+      loadQuestions(module.import(data));
       toastSuccess('Loaded successfully.');
     } catch (error) {
       console.error(error);
@@ -58,7 +60,7 @@ function NavBar() {
   const exportFile = (type) => {
     const module = modules[type];
     downloadAsFile({
-      data: module.exportTo(questions),
+      data: module.export(questions),
       fileName: `questions-${formatDateStamp(new Date())}.${
         module.fileExtension
       }`,
@@ -78,13 +80,13 @@ function NavBar() {
       >
         <ChevronLeftIcon
           aria-hidden="true"
-          class="h-4 w-4 sm:hidden"
+          className="h-4 w-4 sm:hidden"
           fill="currentColor"
         />
         <span className="mx-2">Import</span>
         <UploadIcon
           aria-hidden="true"
-          class="h-4 w-4"
+          className="h-4 w-4"
           fill="currentColor"
           focusable="false"
           role="img"
@@ -97,7 +99,7 @@ function NavBar() {
       >
         <ChevronLeftIcon
           aria-hidden="true"
-          class="h-4 w-4 sm:hidden"
+          className="h-4 w-4 sm:hidden"
           fill="currentColor"
         />
         <span className="mx-2">Export</span>

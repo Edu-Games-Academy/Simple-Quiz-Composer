@@ -1,6 +1,4 @@
-@import 'highlight.js/styles/monokai-sublime.css';
-@import 'katex/dist/katex.css';
-@import 'react-quill/dist/quill.snow.css';
+@import 'sqc-ui-components/styles.css';
 
 @tailwind base;
 @tailwind components;

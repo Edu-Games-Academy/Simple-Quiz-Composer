@@ -1,10 +1,9 @@
 import React from 'react';
+import { QuestionsProvider, ToastProvider } from 'sqc-ui-components';
 
-import Container from '@/components/Container';
-import NavBar from '@/components/NavBar';
-import SideBar from '@/components/SideBar';
-import { QuestionsProvider } from '@/contexts/QuestionsContext';
-import { ToastProvider } from '@/contexts/ToastContext';
+import Container from './components/Container';
+import NavBar from './components/NavBar';
+import SideBar from './components/SideBar';
 
 function App() {
   return (

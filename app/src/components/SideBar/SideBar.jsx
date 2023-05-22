@@ -1,9 +1,9 @@
 import React from 'react';
-
-import { useQuestionsContext } from '@/contexts/QuestionsContext';
-import { Actions } from '@/reducers/questionReducer';
+import { questionReducer, useQuestionsContext } from 'sqc-ui-components';
 
 import SideBarButton from './SideBarButton';
+
+const { QuestionsActions } = questionReducer;
 
 function SideBar() {
   const {
@@ -13,7 +13,7 @@ function SideBar() {
     setSelectedQuestion,
   } = useQuestionsContext();
   const addQuestion = () => {
-    questionsDispatch({ type: Actions.ADD });
+    questionsDispatch({ type: QuestionsActions.ADD });
     setSelectedQuestion(questions.length);
   };
   return (
