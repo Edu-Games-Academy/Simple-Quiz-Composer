@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/Edu-Games-Academy/Simple-Quiz-Composer/compare/sqc-ui-components-v1.1.0...sqc-ui-components-v1.1.1) (2023-05-22)
+
+
+### Bug Fixes
+
+* **ui:** react peer dependencies ([07ff6f0](https://github.com/Edu-Games-Academy/Simple-Quiz-Composer/commit/07ff6f0b1fc36e9ac9c0997bcf917284a80acb8e))
+
 ## [1.1.0](https://github.com/Edu-Games-Academy/Simple-Quiz-Composer/compare/sqc-ui-components-v1.0.0...sqc-ui-components-v1.1.0) (2023-05-22)
 
 
