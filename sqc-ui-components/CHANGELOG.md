@@ -3,6 +3,19 @@
 
 ### Bug Fixes
 
+* **ui:** clean dependencies ([756e435](https://github.com/Edu-Games-Academy/Simple-Quiz-Composer/commit/756e4354e6c356f734ce4752fd392a130e94f41b))
+* **ui:** update vite build config ([c91e40e](https://github.com/Edu-Games-Academy/Simple-Quiz-Composer/commit/c91e40e54146bd67bc756396d4320ccaa63137d8))
+
+
+### Reverts
+
+* Revert "fix(ui): react peer dependencies" ([3b4eec6](https://github.com/Edu-Games-Academy/Simple-Quiz-Composer/commit/3b4eec603e89d061d5f551a61d02a0d8706f60d3))
+
+## [1.1.2](https://github.com/Edu-Games-Academy/Simple-Quiz-Composer/compare/sqc-ui-components-v1.1.1...sqc-ui-components-v1.1.2) (2023-05-25)
+
+
+### Bug Fixes
+
 * **ui:** update vite build config ([39d7ef0](https://github.com/Edu-Games-Academy/Simple-Quiz-Composer/commit/39d7ef0f87f6bddc37c572512512fa164a4e5396))
 
 
