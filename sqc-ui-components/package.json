@@ -36,6 +36,7 @@
     "test:coverage": "jest --coverage",
     "test:dts": "find dist -name \"*.d.ts\" | xargs npx tsc --esModuleInterop --noEmit",
     "docs": "typedoc src/index.ts --out docs",
+    "prepack": "json -f package.json -I -e \"delete this.devDependencies; delete this.dependencies\"",
     "release": "semantic-release"
   },
   "devDependencies": {
@@ -67,6 +68,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "jest": "^28.1.1",
     "jest-environment-jsdom": "^28.1.1",
+    "json": "^11.0.0",
     "postcss": "^8.4.20",
     "prettier": "^2.7.1",
     "react": "^18.2.0",
