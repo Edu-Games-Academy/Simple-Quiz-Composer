@@ -25,6 +25,15 @@ export default defineConfig(() => ({
     optimizeDeps: {
       exclude: Object.keys(packageJson.peerDependencies),
     },
+    rollupOptions: {
+      external: ['react', 'react-dom'],
+      output: {
+        globals: {
+          react: 'React',
+          'react-dom': 'ReactDOM',
+        },
+      },
+    },
     esbuild: {
       minify: true,
     },
