@@ -1,3 +1,17 @@
+## [1.2.0](https://github.com/Edu-Games-Academy/Simple-Quiz-Composer/compare/sqc-ui-components-v1.1.0...sqc-ui-components-v1.2.0) (2023-05-29)
+
+
+### Features
+
+* **core:** clean dependencies ([14dd667](https://github.com/Edu-Games-Academy/Simple-Quiz-Composer/commit/14dd6676db1922a7a10658d3b556a1064cf4be98))
+* **ui:** clean dependencies ([45bf00d](https://github.com/Edu-Games-Academy/Simple-Quiz-Composer/commit/45bf00d92c4747d386f77bef95802819594cd06b))
+
+
+### Bug Fixes
+
+* **ui:** update sqc-core-functions ([337bfb5](https://github.com/Edu-Games-Academy/Simple-Quiz-Composer/commit/337bfb501f1e4bafac6eede3cbf90e9246f6b19c))
+* **ui:** update vite build config ([2140718](https://github.com/Edu-Games-Academy/Simple-Quiz-Composer/commit/2140718169c116e1fbf601e3a60955e41f3bd1c6))
+
 ## [1.1.0](https://github.com/Edu-Games-Academy/Simple-Quiz-Composer/compare/sqc-ui-components-v1.0.0...sqc-ui-components-v1.1.0) (2023-05-22)
 
 
