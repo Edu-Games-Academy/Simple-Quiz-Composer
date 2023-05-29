@@ -9814,10 +9814,10 @@ sprintf-js@~1.0.2:
   resolved "https://registry.npmjs.org/sprintf-js/-/sprintf-js-1.0.3.tgz"
   integrity sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g==
 
-sqc-core-functions@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.npmjs.org/sqc-core-functions/-/sqc-core-functions-1.1.1.tgz"
-  integrity sha512-6qfrQSJNlPXhxhwH+TehPetjbTpK2PQR9Tn5/6u8FB2zLKLWuexwCfstU2212q0baq6W56yBU7kqpXHKb+l+/A==
+sqc-core-functions@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/sqc-core-functions/-/sqc-core-functions-1.2.0.tgz#96ea546ae2df328d3409206bb3a491cf7b4d730d"
+  integrity sha512-1CqG3Q4UzsJ9pX2iY+WIIG7uZ+HRUKnJ4AQnX5H1ltAQvWwh1s8T2r9c5GqT3g2VIYYRV0DA2b8k0sEWle4K0A==
   dependencies:
     gift-pegjs "^0.2.1"
     zod "^3.21.4"
