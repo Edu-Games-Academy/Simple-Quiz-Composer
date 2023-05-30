@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/Edu-Games-Academy/Simple-Quiz-Composer/compare/sqc-ui-components-v1.2.0...sqc-ui-components-v1.2.1) (2023-05-30)
+
+
+### Bug Fixes
+
+* **ui:** use prefix for tailwind classes ([195ce88](https://github.com/Edu-Games-Academy/Simple-Quiz-Composer/commit/195ce882bad0d3228bdad3a2d2185357c850acb8))
+
 ## [1.2.0](https://github.com/Edu-Games-Academy/Simple-Quiz-Composer/compare/sqc-ui-components-v1.1.0...sqc-ui-components-v1.2.0) (2023-05-29)
 
 
