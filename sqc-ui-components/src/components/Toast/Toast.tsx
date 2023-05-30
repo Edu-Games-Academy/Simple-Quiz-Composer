@@ -23,35 +23,37 @@ export const Toast = ({ type = 'default', text, onClose }: ToastParams) => {
   switch (type) {
     case 'success':
       Icon = DoneIcon
-      style = 'bg-green-800 text-green-200'
+      style = 'sqc-bg-green-800 sqc-text-green-200'
       break
     case 'error':
       Icon = CloseIcon
-      style = 'bg-red-800 text-red-200'
+      style = 'sqc-bg-red-800 sqc-text-red-200'
       break
     case 'default':
     default:
       Icon = MenuIcon
-      style = 'bg-slate-800 text-slate-200'
+      style = 'sqc-bg-slate-800 sqc-text-slate-200'
   }
   return (
     <div
-      className='fixed right-5 bottom-5 flex w-full max-w-xs items-center rounded-lg bg-gray-800 p-4 text-gray-400 shadow'
+      className='sqc-fixed sqc-right-5 sqc-bottom-5 sqc-flex sqc-w-full sqc-max-w-xs sqc-items-center sqc-rounded-lg sqc-bg-gray-800 sqc-p-4 sqc-text-gray-400 sqc-shadow'
       role='alert'
     >
-      <div className={`inline-flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg ${style}`}>
-        <Icon aria-hidden='true' className='h-5 w-5' fill='currentColor' />
-        <span className='sr-only'>Status icon</span>
+      <div
+        className={`sqc-inline-flex sqc-h-8 sqc-w-8 sqc-flex-shrink-0 sqc-items-center sqc-justify-center sqc-rounded-lg ${style}`}
+      >
+        <Icon aria-hidden='true' className='sqc-h-5 sqc-w-5' fill='currentColor' />
+        <span className='sqc-sr-only'>Status icon</span>
       </div>
-      <div className='ml-3 text-sm font-normal'>{text}</div>
+      <div className='sqc-ml-3 sqc-text-sm sqc-font-normal'>{text}</div>
       <button
         type='button'
-        className='-mx-1.5 -my-1.5 ml-auto inline-flex h-8 w-8 rounded-lg bg-gray-800 p-1.5 text-gray-500 hover:bg-gray-700 hover:text-white focus:ring-2 focus:ring-gray-300'
+        className='sqc--mx-1.5 sqc--my-1.5 sqc-ml-auto sqc-inline-flex sqc-h-8 sqc-w-8 sqc-rounded-lg sqc-bg-gray-800 sqc-p-1.5 sqc-text-gray-500 hover:sqc-bg-gray-700 hover:sqc-text-white focus:sqc-ring-2 focus:sqc-ring-gray-300'
         aria-label='Close'
         onClick={onClose}
       >
-        <span className='sr-only'>Close</span>
-        <CloseIcon aria-hidden='true' className='h-5 w-5' fill='currentColor' />
+        <span className='sqc-sr-only'>Close</span>
+        <CloseIcon aria-hidden='true' className='sqc-h-5 sqc-w-5' fill='currentColor' />
       </button>
     </div>
   )

@@ -24,14 +24,14 @@ describe('Preview', () => {
 
   it('renders the correct answer icon', () => {
     render(<Preview question={question} />)
-    expect(screen.getByText('Paris').previousSibling).toHaveClass('text-green-400')
+    expect(screen.getByText('Paris').previousSibling).toHaveClass('sqc-text-green-400')
   })
 
   it('renders the incorrect answer icon', () => {
     render(<Preview question={question} />)
-    expect(screen.getByText('Madrid').previousSibling).toHaveClass('text-red-400')
-    expect(screen.getByText('London').previousSibling).toHaveClass('text-red-400')
-    expect(screen.getByText('Rome').previousSibling).toHaveClass('text-red-400')
+    expect(screen.getByText('Madrid').previousSibling).toHaveClass('sqc-text-red-400')
+    expect(screen.getByText('London').previousSibling).toHaveClass('sqc-text-red-400')
+    expect(screen.getByText('Rome').previousSibling).toHaveClass('sqc-text-red-400')
   })
 
   it('renders the question code', () => {

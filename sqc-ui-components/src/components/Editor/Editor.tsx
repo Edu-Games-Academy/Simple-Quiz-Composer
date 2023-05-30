@@ -23,7 +23,7 @@ export const Editor = ({ value, onChange, richtextMode = true }: EditorParams) =
   ) : (
     <textarea
       rows={3}
-      className='my-2.5 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500'
+      className='sqc-my-2.5 sqc-block sqc-w-full sqc-rounded-lg sqc-border sqc-border-gray-300 sqc-bg-gray-50 sqc-p-2.5 sqc-text-sm sqc-text-gray-900 focus:sqc-border-blue-500 focus:sqc-ring-blue-500'
       value={value}
       onChange={(e) => onChange(e.target.value)}
     />

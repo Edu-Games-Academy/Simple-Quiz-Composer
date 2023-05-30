@@ -63,50 +63,50 @@ export const QuizEditor = ({ question, richtextMode, onChange, warning }: QuizEd
 
   return (
     <div key={question.id}>
-      <h2 className='mb-2 text-xl font-semibold'>Question:</h2>
+      <h2 className='sqc-mb-2 sqc-text-xl sqc-font-semibold'>Question:</h2>
       <Editor value={question.question} onChange={handleQuestionUpdate} richtextMode={richtextMode} />
       {warning}
-      <h2 className='my-2 text-xl font-semibold'>Answers:</h2>
+      <h2 className='sqc-my-2 sqc-text-xl sqc-font-semibold'>Answers:</h2>
       {question.choices.map((choice, index) => (
         <div key={choice.id}>
-          <h3 className='mb-2 font-semibold text-l'>
-            Answer {index + 1}: {choice.isCorrect && <span className='text-emerald-500'>Correct</span>}
+          <h3 className='sqc-mb-2 sqc-font-semibold sqc-text-l'>
+            Answer {index + 1}: {choice.isCorrect && <span className='sqc-text-emerald-500'>Correct</span>}
           </h3>
-          <div className='relative mb-6'>
-            <div className='absolute inset-y-0 left-0 flex flex-col items-center justify-center gap-2 pl-3'>
+          <div className='sqc-relative sqc-mb-6'>
+            <div className='sqc-absolute sqc-inset-y-0 sqc-left-0 sqc-flex sqc-flex-col sqc-items-center sqc-justify-center sqc-gap-2 sqc-pl-3'>
               <button
                 type='button'
                 role='toggle-answer'
                 aria-disabled={isAnswerTogglable(choice)}
                 disabled={isAnswerTogglable(choice)}
-                className='text-slate-400 hover:rounded-lg hover:border hover:bg-emerald-200 disabled:cursor-not-allowed disabled:bg-transparent disabled:text-emerald-400'
+                className='sqc-text-slate-400 hover:sqc-rounded-lg hover:sqc-border hover:sqc-bg-emerald-200 disabled:sqc-cursor-not-allowed disabled:sqc-bg-transparent disabled:sqc-text-emerald-400'
                 onClick={() => handleToggleAnswer(choice)}
               >
-                <CheckedIcon className='w-8 h-8' fill='currentColor' />
-                <span className='sr-only'>Mark as correct answer</span>
+                <CheckedIcon className='sqc-w-8 sqc-h-8' fill='currentColor' />
+                <span className='sqc-sr-only'>Mark as correct answer</span>
               </button>
               <button
                 type='button'
                 role='remove-answer'
                 aria-disabled={isAnswerNonRemovable(choice)}
                 disabled={isAnswerNonRemovable(choice)}
-                className='text-red-400 hover:rounded-lg hover:border hover:bg-red-200 disabled:cursor-not-allowed disabled:bg-transparent'
+                className='sqc-text-red-400 hover:sqc-rounded-lg hover:sqc-border hover:sqc-bg-red-200 disabled:sqc-cursor-not-allowed disabled:sqc-bg-transparent'
                 onClick={() => handleRemoveAnswer(index)}
               >
-                <DeleteIcon className='w-8 h-8' fill='currentColor' />
-                <span className='sr-only'>Remove this answer</span>
+                <DeleteIcon className='sqc-w-8 sqc-h-8' fill='currentColor' />
+                <span className='sqc-sr-only'>Remove this answer</span>
               </button>
               <button
                 type='button'
                 role='add-answer'
                 onClick={() => handleAddAnswer(index)}
-                className='text-blue-400 hover:rounded-lg hover:border hover:bg-blue-200'
+                className='sqc-text-blue-400 hover:sqc-rounded-lg hover:sqc-border hover:sqc-bg-blue-200'
               >
-                <AddIcon className='w-8 h-8' fill='currentColor' />
-                <span className='sr-only'>Add an answer after</span>
+                <AddIcon className='sqc-w-8 sqc-h-8' fill='currentColor' />
+                <span className='sqc-sr-only'>Add an answer after</span>
               </button>
             </div>
-            <div className='block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 pl-14 lg:py-5'>
+            <div className='sqc-block sqc-w-full sqc-rounded-lg sqc-border sqc-border-gray-300 sqc-bg-gray-50 sqc-p-2.5 sqc-pl-14 lg:sqc-py-5'>
               <Editor
                 value={choice.answer}
                 onChange={(val) => handleAnswerUpdate(index, val)}

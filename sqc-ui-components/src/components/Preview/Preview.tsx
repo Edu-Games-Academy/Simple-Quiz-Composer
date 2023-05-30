@@ -5,11 +5,11 @@ import { ReactComponent as CloseIcon } from '../../assets/svg/close.svg'
 import { Question } from 'sqc-core-functions'
 
 const Answer = ({ answer, isCorrect, className }: { answer: string; isCorrect: boolean; className: string }) => (
-  <li className={`${className} flex w-full items-center gap-2 p-2`}>
+  <li className={`${className} sqc-flex sqc-w-full sqc-items-center sqc-gap-2 sqc-p-2`}>
     {isCorrect ? (
-      <CheckedIcon className='h-5 w-5 text-green-400' fill='currentColor' />
+      <CheckedIcon className='sqc-h-5 sqc-w-5 sqc-text-green-400' fill='currentColor' />
     ) : (
-      <CloseIcon className='h-5 w-5 text-red-400' fill='currentColor' />
+      <CloseIcon className='sqc-h-5 sqc-w-5 sqc-text-red-400' fill='currentColor' />
     )}
     <span
       dangerouslySetInnerHTML={{
@@ -27,11 +27,11 @@ export type PreviewParams = { question: Question }
 export function Preview({ question }: PreviewParams) {
   return (
     <div>
-      <h5 className='text-xl font-semibold tracking-tight text-gray-900'>Rendered:</h5>
+      <h5 className='sqc-text-xl sqc-font-semibold sqc-tracking-tight sqc-text-gray-900'>Rendered:</h5>
 
-      <div className='quiz my-4 w-full rounded-lg border border-gray-200'>
+      <div className='quiz sqc-my-4 sqc-w-full sqc-rounded-lg sqc-border sqc-border-gray-200'>
         <div
-          className='block w-full rounded-t-lg border-b border-gray-200 bg-slate-200 px-4 py-2 '
+          className='sqc-block sqc-w-full sqc-rounded-t-lg sqc-border-b sqc-border-gray-200 sqc-bg-slate-200 sqc-px-4 sqc-py-2'
           dangerouslySetInnerHTML={{ __html: question.question }}
         />
         <ul>
@@ -40,19 +40,19 @@ export function Preview({ question }: PreviewParams) {
               key={index}
               answer={choice.answer}
               isCorrect={choice.isCorrect}
-              className='border-b border-gray-200'
+              className='sqc-border-b sqc-border-gray-200'
             />
           ))}
           <Answer
             answer={question.choices[question.choices.length - 1]?.answer}
             isCorrect={question.choices[question.choices.length - 1]?.isCorrect}
-            className='rounded-b-lg'
+            className='sqc-rounded-b-lg'
           />
         </ul>
       </div>
 
-      <h5 className='text-xl font-semibold tracking-tight text-gray-900'>Code:</h5>
-      <div className='w-full overflow-scroll rounded-sm bg-slate-700 p-2'>
+      <h5 className='sqc-text-xl sqc-font-semibold sqc-tracking-tight sqc-text-gray-900'>Code:</h5>
+      <div className='sqc-w-full sqc-overflow-scroll sqc-rounded-sm sqc-bg-slate-700 sqc-p-2'>
         <pre role='generated-code'>
           <code
             dangerouslySetInnerHTML={{
