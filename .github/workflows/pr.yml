@@ -52,3 +52,27 @@ jobs:
         uses: ./.github/steps/test-coverage
         with:
           directory: sqc-ui-components
+
+  chromatic:
+    name: Run Chromatic publish for UI review
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1 # suggested by Chromatic
+      - uses: dorny/paths-filter@v2
+        id: changes
+        with:
+          filters: |
+            ui:
+              - 'sqc-ui-components/**'
+
+      - if: steps.changes.outputs.ui == 'true'
+        uses: ./.github/steps/install
+        with:
+          directory: sqc-ui-components
+
+      - if: steps.changes.outputs.ui == 'true'
+        name: Publish to Chromatic
+        uses: chromaui/action@v1
+        with:
+          workingDir: sqc-ui-components
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
