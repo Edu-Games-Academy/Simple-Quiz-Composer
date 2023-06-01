@@ -1,13 +1,23 @@
+import { Meta, StoryObj } from '@storybook/react'
 import { testQuestions } from '__tests__/_common/question'
 import { getRandomNumber } from '__tests__/_common/utils'
 import { createQuestion } from 'sqc-core-functions'
 import { QuestionsActions, initialQuestions } from 'src/reducers/questionReducer'
 import { QuestionsProvider, useQuestionsContext } from './QuestionsContext'
 
-export default {
-  title: 'Components/QuestionsProvider',
+const meta = {
+  title: 'Components/QuestionsContext',
   component: QuestionsProvider,
-}
+  tags: ['docsPage'],
+  argTypes: {
+    children: {
+      control: { type: 'object' },
+    },
+  },
+} satisfies Meta<typeof QuestionsProvider>
+
+export default meta
+type Story = StoryObj<typeof meta>
 
 const ChildComponent = () => {
   const { questions, selectedQuestion, setSelectedQuestion, questionsDispatch } = useQuestionsContext()
@@ -62,8 +72,8 @@ const ChildComponent = () => {
   )
 }
 
-export const Default = () => (
-  <QuestionsProvider>
-    <ChildComponent />
-  </QuestionsProvider>
-)
+export const Default: Story = {
+  args: {
+    children: <ChildComponent />,
+  },
+}
