@@ -2,11 +2,14 @@
   "name": "sqc-ui-components",
   "version": "1.2.1",
   "description": "UI Components for Simple Quiz Composer",
-  "author": "Hieu Nguyen (isaactesla@gmail.com)",
+  "author": {
+    "name": "Hieu Nguyen",
+    "url": "isaactesla@gmail.com"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Edu-Games-Academy/Simple-Quiz-Composer.git"
+    "url": "git+https://github.com/Edu-Games-Academy/Simple-Quiz-Composer.git"
   },
   "type": "module",
   "types": "dist/index.d.ts",
@@ -28,13 +31,14 @@
     "build:css": "tailwindcss -m -i ./src/tailwind-entry.css -o ./dist/styles.css",
     "storybook": "concurrently \"yarn storybook:css\" \"storybook dev -p 6006\"",
     "storybook:css": "tailwindcss -w -i ./src/tailwind-entry.css -o ./build/styles.css",
-    "build-storybook": "concurrently \"yarn build-storybook:css\" \"storybook build\"",
+    "build-storybook": "yarn build-storybook:css && storybook build",
     "build-storybook:css": "tailwindcss -m -i ./src/tailwind-entry.css -o ./build/styles.css",
     "lint": "eslint --ext .js,.ts --ignore-path .gitignore --max-warnings 0 .",
     "lint:fix": "yarn lint --fix",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "test:dts": "find dist -name \"*.d.ts\" | xargs npx tsc --esModuleInterop --noEmit",
+    "chromatic": "chromatic --exit-zero-on-changes",
     "docs": "typedoc src/index.ts --out docs",
     "prepack": "json -f package.json -I -e \"delete this.devDependencies\"",
     "release": "semantic-release"
@@ -61,6 +65,7 @@
     "@vitejs/plugin-react": "^3.0.0",
     "autoprefixer": "^10.4.13",
     "babel-loader": "^8.3.0",
+    "chromatic": "^6.18.0",
     "concurrently": "^7.6.0",
     "conventional-changelog-conventionalcommits": "^5.0.0",
     "eslint": "^8.9.0",
@@ -94,5 +99,11 @@
     "katex": "^0.16.6",
     "react-quill": "^2.0.0",
     "sqc-core-functions": "^1.2.0"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/Edu-Games-Academy/Simple-Quiz-Composer/issues"
+  },
+  "readme": "ERROR: No README data found!",
+  "homepage": "https://github.com/Edu-Games-Academy/Simple-Quiz-Composer#readme",
+  "_id": "sqc-ui-components@1.2.1"
 }
