@@ -1,7 +1,8 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { testQuestions } from '__tests__/_common/question'
 import { getRandomNumber } from '__tests__/_common/utils'
-import { createQuestion } from 'sqc-core-functions'
+import { useEffect } from 'react'
+import { createChoice, createQuestion } from 'sqc-core-functions'
 import { QuestionsActions, initialQuestions } from 'src/reducers/questionReducer'
 import { QuestionsProvider, useQuestionsContext } from './QuestionsContext'
 
@@ -25,6 +26,18 @@ const ChildComponent = () => {
     border: 'solid 1px black',
     margin: 4,
   }
+
+  useEffect(() => {
+    questionsDispatch({
+      type: QuestionsActions.REPLACE,
+      questions: [
+        createQuestion({
+          id: '1',
+          choices: [createChoice({ id: '1.1', isCorrect: true })],
+        }),
+      ],
+    })
+  }, [])
 
   return (
     <>
